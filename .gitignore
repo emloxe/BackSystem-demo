@@ -12,5 +12,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-front/node_modules
+client/node_modules
+serve/node_modules
 
