@@ -46,7 +46,7 @@ app.use(staticCache(path.join(__dirname, '../static'), {
 app.use(new CSRF());
 
 app.use(async (ctx, next) => {
-  console.log(`${ctx.request.method} ${ctx.request.url}`); // 打印URL
+  console.log(`${ctx.method} ${ctx.url}`); // 打印URL
   await next(); // 调用下一个middleware
 });
 
@@ -102,6 +102,7 @@ if (conf.login) { // 如果配置登入， 路由重定向到登入页面
 }
 
 app.use(staticCache(path.join(__dirname, '../views')));
+app.use(staticCache(path.join(__dirname, './static')));
 
 
 app.use(registerRouter());
