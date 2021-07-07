@@ -12,22 +12,26 @@ const importConfig = (filePath, name) => {
 };
 
 const {
-  serverPort = 3001,
+  dbUser = 'root',
+  dbPassword = '123456',
+  databaseName = 'backsystem_demo',
   dbHost = '127.0.0.1',
   dbPort = 3306, 
-  databaseName = 'koa_demo',
-  dbName = 'root',
-  dbPassword = '123456',
+  logging = false,
+
+  serverPort = 3001,
 } = importConfig(__dirname, './overWrite.js');
 
 module.exports = {
   port: serverPort,
   api: '/api/v1',
-  db: {
+  db_config: {
+    username: dbUser,
+    password: dbPassword,
+    database: databaseName,
     host: dbHost,
     port: dbPort,
-    database: databaseName,
-    username: dbName,
-    password: dbPassword
+    timezone: '+08:00',
+    logging,
   }
 };

@@ -19,7 +19,7 @@ import SideNav from "../../components/SideNav/SideNav";
 
 import "./Index.css";
 
-const { Header, Sider, Content } = Layout;
+const { Header, Sider, Content, Footer } = Layout;
 
 export default function SiderDemo() {
   const [collapsed, setCollapsed] = useState(false);
@@ -37,45 +37,51 @@ export default function SiderDemo() {
 
   return (
     <Layout className="layout-custom">
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+      <Header className="site-layout-background" style={{ padding: 0 }}>
         <div className="logo" />
-        <SideNav />
-      </Sider>
-      <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }}>
-          {React.createElement(
-            collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-            {
-              className: "trigger",
-              onClick: toggle,
-            }
-          )}
-        </Header>
+      </Header>
+      <Layout>
+        <Sider trigger={null} collapsible collapsed={collapsed}>
+          <div className="trigger-sideNav">
+            {React.createElement(
+              collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+              {
+                className: "trigger",
+                onClick: toggle,
+              }
+            )}
+          </div>
 
-        <Content
-          style={{
-            margin: "24px 16px",
-            minHeight: 280,
-          }}
-        >
-          <Breadcrumb style={{ marginBottom: 10 }}>
-            <Breadcrumb.Item href="">
-              <HomeOutlined />
-            </Breadcrumb.Item>
-            <Breadcrumb.Item href="">
-              <UserOutlined />
-              <span>Application List</span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>Application</Breadcrumb.Item>
-          </Breadcrumb>
+          <SideNav />
+        </Sider>
 
-          <Switch>
-            <Route exact path={`${match.path}/`} children={<Home />} />
-            <Route path={`${match.path}/user`} children={<User />} />
-            <Route path={`${match.path}/easy-mock`} children={<EasyMock />} />
-            <Route path={`${match.path}/*`} children={<NoPage />} />
-          </Switch>
-        </Content>
+        <Layout>
+          <Content
+            style={{
+              margin: "24px 16px",
+              minHeight: 280,
+            }}
+          >
+            <Breadcrumb style={{ marginBottom: 10 }}>
+              <Breadcrumb.Item href="">
+                <HomeOutlined />
+              </Breadcrumb.Item>
+              <Breadcrumb.Item href="">
+                <UserOutlined />
+                <span>Application List</span>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item>Application</Breadcrumb.Item>
+            </Breadcrumb>
+
+            <Switch>
+              <Route exact path={`${match.path}/`} children={<Home />} />
+              <Route path={`${match.path}/user`} children={<User />} />
+              <Route path={`${match.path}/easy-mock`} children={<EasyMock />} />
+              <Route path={`${match.path}/*`} children={<NoPage />} />
+            </Switch>
+          </Content>
+          <Footer className="footer">MIT Licensed | Copyright © 2021-present Zhang W.J. </Footer>
+        </Layout>
       </Layout>
     </Layout>
   );

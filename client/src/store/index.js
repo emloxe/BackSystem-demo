@@ -1,6 +1,6 @@
-import routeStore from './routeStore'
+// import routeStore from './routeStore'
 
 const store = {
-  routeStore,
+  // routeStore,
 }
 export default store

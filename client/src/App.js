@@ -6,7 +6,7 @@ import Register from "./routes/Register/Register";
 import Index from "./routes/Index/Index";
 import NoPage from "./routes/NoPage/NoPage";
 
-export default function App() { 
+export default function App() {
   return (
     <Router>
       <Switch>

@@ -10,10 +10,9 @@ const session = require('koa-session'); // 信息持久化存储，记录当前�
 const CSRF = require('koa-csrf'); // 跨站请求伪造
 const cors = require('@koa/cors');
 const path = require('path');
-const chalk = require('chalk');
 
 const registerRouter = require('./routers');
-const conf = require('./conf'); // 默认配置
+const conf = require('./config'); // 默认配置
 
 const app = new Koa();
 
@@ -127,7 +126,4 @@ app.use(async (ctx) => { // 404
   }
 });
 
-// 开启端口监听
-app.listen(conf.port);
-console.log(`[${new Date().toLocaleString()}]`);
-console.log(chalk.green('INFO'), ' connect to', chalk.underline(`http://127.0.0.1:${conf.port}`));
+module.exports =  app;

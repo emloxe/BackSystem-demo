@@ -9,14 +9,14 @@ import { Link, useRouteMatch, useLocation } from "react-router-dom";
 const { SubMenu, Item } = Menu;
 export default function SiderNav(props) {
   let match = useRouteMatch();
-  let location = useLocation();
-  const len = match.url.length;
+  // let location = useLocation();
+  // const len = match.url.length;
 
-  const [openKeys, setOpenKeys] = useState([]);
-  let [selectedKey, setSelectedKey] = useState("/easy-mock");
+  // const [openKeys, setOpenKeys] = useState([]);
+  // let [selectedKey, setSelectedKey] = useState("/easy-mock");
 
-  const pathname = window.location.pathname;
-  setSelectedKey(pathname.slice(len));
+  // const pathname = window.location.pathname;
+  // setSelectedKey(pathname.slice(len));
 
   useEffect(() => {
     console.log("只执行一次3333");
@@ -55,9 +55,9 @@ export default function SiderNav(props) {
 
   return (
     <Menu
-      theme="dark"
+      // theme="dark"
       mode="inline"
-      defaultSelectedKeys={[selectedKey]}
+      // defaultSelectedKeys={[selectedKey]}
       onClick={selectNavHandler}
       // openKeys={openKeys}
     >
