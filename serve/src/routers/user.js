@@ -17,7 +17,7 @@ router.get("/all", async (ctx, next) => {
 // 登陆
 router.post("/login", async (ctx, next) => {
   let user = ctx.request.body;
-  let data = await models.user.findAll();
+  let data = await models.findAll();
 //   console.log(JSON.stringify(ctx.query))
   ctx.body = data.code ? data : { code: 0, data: data };
 });
@@ -25,7 +25,7 @@ router.post("/login", async (ctx, next) => {
 // 注册
 router.post("/register", async (ctx, next) => {
   let user = ctx.request.body;
-  let data = await models.user.findAll();
+  let data = await models.findAll();
 //   console.log(JSON.stringify(ctx.query))
   ctx.body = data.code ? data : { code: 0, data: data };
 });
@@ -33,7 +33,7 @@ router.post("/register", async (ctx, next) => {
 // 重置密码
 router.put("/password", async (ctx, next) => {
   let user = ctx.request.body;
-  let data = await models.user.findAll();
+  let data = await models.findAll();
 //   console.log(JSON.stringify(ctx.query))
   ctx.body = data.code ? data : { code: 0, data: data };
 });
@@ -41,7 +41,7 @@ router.put("/password", async (ctx, next) => {
 // 重置用户信息
 router.put("/info", async (ctx, next) => {
   let user = ctx.request.body;
-  let data = await models.user.findAll();
+  let data = await models.findAll();
 //   console.log(JSON.stringify(ctx.query))
   ctx.body = data.code ? data : { code: 0, data: data };
 });
@@ -49,7 +49,7 @@ router.put("/info", async (ctx, next) => {
 // 删除用户
 router.delete("/", async (ctx, next) => {
   let user = ctx.request.body;
-  let data = await models.user.findAll();
+  let data = await models.findAll();
 //   console.log(JSON.stringify(ctx.query))
   ctx.body = data.code ? data : { code: 0, data: data };
 });
@@ -57,21 +57,21 @@ router.delete("/", async (ctx, next) => {
 // router.post('/', async (ctx, next) => {
 //     let user = ctx.request.body;
 //     let service = new Service();
-//     let data = await service.addQueryUser({key: 'users', val: user}, ctx.session.user.username);
+//     let data = await service.addQueryUser({key: 'users', val: user}, ctx.sessionname);
 //     ctx.body = data.code?data:{code: 0, data: data}
 // })
 
 // router.delete('/', async (ctx, next) => {
 //     let user = ctx.request.body;
 //     let service = new Service();
-//     let data = await service.deleteQueryUser({key: 'users', val: user.data},ctx.session.user.username);
+//     let data = await service.deleteQueryUser({key: 'users', val: user.data},ctx.sessionname);
 //     ctx.body = data.code?data:{code: 0, data: data}
 // })
 
 // router.put('/', async (ctx, next) => {
 //     let user = ctx.request.body;
 //     let service = new Service();
-//     let data = await service.upDateQueryUser({key: 'users', val:user},ctx.session.user.username);
+//     let data = await service.upDateQueryUser({key: 'users', val:user},ctx.sessionname);
 //     ctx.body = data.code?data:{code: 0, data: data}
 // })
 

@@ -49,6 +49,9 @@ app.use(async (ctx, next) => {
   await next(); // 调用下一个middleware
 });
 
+app.use(staticCache(path.join(__dirname, '../views')));
+app.use(staticCache(path.join(__dirname, '../static')));
+
 const CONFIG = {
   key: 'koa:sess',
   /** (string) cookie key (default is koa:sess) */
@@ -100,8 +103,6 @@ if (conf.login) { // 如果配置登入， 路由重定向到登入页面
     });
 }
 
-app.use(staticCache(path.join(__dirname, '../views')));
-app.use(staticCache(path.join(__dirname, './static')));
 
 
 app.use(registerRouter());

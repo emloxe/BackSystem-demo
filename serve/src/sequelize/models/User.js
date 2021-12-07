@@ -20,7 +20,7 @@ const tableStructure = {
     },
   },
 
-  user_password: {
+  userpassword: {
     type: DataTypes.STRING,
   },
 
