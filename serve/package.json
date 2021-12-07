@@ -4,6 +4,7 @@
   "description": "后台代码",
   "main": "app.js",
   "scripts": {
+    "dev": "nodemon  --trace-deprecation index.js ",
     "start": "node  --trace-deprecation index.js ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +27,7 @@
     "lodash": "^4.17.21",
     "md5": "^2.3.0",
     "mysql2": "^2.2.5",
+    "nodemon": "^2.0.15",
     "portfinder": "^1.0.28",
     "sequelize": "^6.6.4"
   }

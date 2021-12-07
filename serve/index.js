@@ -1,8 +1,8 @@
-const app = require("./app");
-const sequelize = require("./sequelize");
+const app = require("./src/app");
+const sequelize = require("./src/sequelize");
 const chalk = require("chalk");
 
-const conf = require("./config"); // 默认配置
+const conf = require("./src/config"); // 默认配置
 
 async function assertDatabaseConnectionOk() {
   console.log(`Checking database connection...`);
