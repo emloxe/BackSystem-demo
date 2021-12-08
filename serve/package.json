@@ -29,6 +29,8 @@
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.15",
     "portfinder": "^1.0.28",
-    "sequelize": "^6.6.4"
+    "sequelize": "^6.6.4",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-koa": "^0.0.1"
   }
 }

@@ -13,6 +13,8 @@ const path = require('path');
 
 const registerRouter = require('./routers');
 const conf = require('./config'); // 默认配置
+const swaggerInstall = require('./swagger');
+
 
 const app = new Koa();
 
@@ -106,7 +108,7 @@ if (conf.login) { // 如果配置登入， 路由重定向到登入页面
 
 
 app.use(registerRouter());
-
+swaggerInstall(app);
 
 app.use(async (ctx) => { // 404
   ctx.status = 404;
