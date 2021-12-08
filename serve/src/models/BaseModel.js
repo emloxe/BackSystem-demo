@@ -1,4 +1,3 @@
-
 module.exports = class BaseModel {
   constructor() {
     this.init();
@@ -80,18 +79,27 @@ module.exports = class BaseModel {
 
   // 单个更新
   update(obj) {
-    return this.orm
-      .update(obj, {
-        where: {
-          id: obj.id,
-        },
-      })
-      .then(
-        () =>
-          new Promise((resolve) => {
-            resolve("ok");
+    return this.get({
+      id: obj.id,
+    }).then((result) => {
+      if (result) {
+        return this.orm
+          .update(obj, {
+            where: {
+              id: obj.id,
+            },
           })
-      );
+          .then(
+            () =>
+              new Promise((resolve) => {
+                resolve("ok");
+              })
+          );
+      }
+      return new Promise((resolve, reject) => {
+        reject('没有匹配到用户,请检查id')
+      });
+    });
   }
 
   addOrUpdate(data) {
@@ -110,4 +118,4 @@ module.exports = class BaseModel {
     const self = this;
     return Promise.each(data, (d) => self.addOrUpdate(d));
   }
-}
+};

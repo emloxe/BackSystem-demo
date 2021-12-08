@@ -10,18 +10,18 @@ const swaggerDoc = require('swagger-jsdoc')
       info: {
         title: 'api',
         version: '1.0.0',
-        description: `小程序+管理后台共用接口api`
+        description: `后台接口api`
       }
     },
     // 去哪个路由下收集 swagger 注释
-    apis: [path.join(__dirname,'../../routes/*.js')]
+    apis: [path.join(__dirname,'../routers/*.jsx')]
   }
 var swaggerJson = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     res.send(swaggerSpec);
   }
   const swaggerSpec = swaggerDoc(options)
-  
+
   var swaggerInstall = function(app) {
     // 开放相关接口，
     // app.use('/swagger.json', swaggerJson);
@@ -29,4 +29,4 @@ var swaggerJson = function (req, res) {
     app.use(swaggerUI.serve);
     app.use(convert(mount('/swagger', swaggerUI.setup(swaggerSpec))));
   }
-  module.exports = swaggerInstall 
+  module.exports = swaggerInstall
