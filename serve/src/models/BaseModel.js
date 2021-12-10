@@ -14,6 +14,11 @@ module.exports = class BaseModel {
     });
   }
 
+  // 全部查询
+  findAll() {
+    return this.orm.findAll();
+  }
+
   // 批量查询
   batchGet(obj) {
     return this.orm.findAll({
@@ -21,13 +26,18 @@ module.exports = class BaseModel {
     });
   }
 
-  // 全部查询
-  findAll() {
-    return this.orm.findAll();
+  // 分页查询
+  batchGetPage(obj, { page = 1, pageSize = 20 }) {
+    let offset = (page - 1) * pageSize;
+    return this.orm.findAndCountAll({
+      where: obj,
+      limit: parseInt(pageSize),
+      offset,
+    });
   }
 
   // 单个增加
-  async add(data) {
+  add(data) {
     return this.orm.create(data);
   }
 
@@ -97,7 +107,7 @@ module.exports = class BaseModel {
           );
       }
       return new Promise((resolve, reject) => {
-        reject('没有匹配到用户,请检查id')
+        reject("没有匹配到用户,请检查id");
       });
     });
   }

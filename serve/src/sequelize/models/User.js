@@ -17,12 +17,18 @@ const tableStructure = {
   username: {
     allowNull: false,
     type: DataTypes.STRING,
-    unique: true,
+    unique: false,
     validate: {},
+  },
+  phone: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
   },
 
   password: {
     type: DataTypes.STRING,
+    default: 'e10adc3949ba59abbe56e057f20f883e'
   },
 
   email: {
@@ -33,11 +39,7 @@ const tableStructure = {
     },
   },
 
-  phone: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
+
 };
 
 // We export a function that defines the model.

@@ -38,17 +38,23 @@
 
 /**
  * @swagger
- * /api/v1/user/all:
+ * /api/v1/user/list:
  *    get:
  *      tags:
  *      - 用户
- *      summary: 获取全部用户
+ *      summary: 获取用户
  *      produces:
  *      - application/json
  *      parameters:
- *      - name: parmas
+ *      - name: page
  *        in: query
- *        description: parmas
+ *        description: 第几页
+ *        default: "1"
+ *        required: false
+ *      - name: pageSize
+ *        in: query
+ *        description: 一页有多少数据
+ *        default: "20"
  *        required: false
  *      responses:
  *        200:
@@ -60,6 +66,40 @@
  *        404:
  *          description: Order not found
  * */
+
+
+/**
+ * @swagger
+ * /api/v1/user/login:
+ *    post:
+ *      tags:
+ *      - 用户
+ *      summary: 登录
+ *      description:
+ *      produces:
+ *      - application/json
+ *      parameters:
+ *       - name: body
+ *         in: body
+ *         schema:
+ *           properties:
+ *             phone:
+ *               type: "string"
+ *               default: "123XXXXXXX"
+ *               description: 手机号
+ *             password:
+ *               type: "string"
+ *               default: "123456"
+ *               description: 密码
+ *      responses:
+ *        200:
+ *          description: successful operation
+ *        400:
+ *          description: Invalid ID supplied
+ *        404:
+ *          description: Order not found
+ * */
+
 
 /**
  * @swagger
