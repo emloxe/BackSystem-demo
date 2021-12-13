@@ -1,16 +1,18 @@
 const Router = require("koa-router"),
   uuid = require("uuid"),
   md5 = require("md5");
+const jwt = require("jsonwebtoken");
 const config = require("../config");
 const model = require("../models/user");
+const conf = require("../config");
 
 const router = new Router();
 
 router.prefix(`${config.api}/user`);
 
-router.get("/list", async (ctx, next) => {
+router.get("/list", async (ctx) => {
   let { page = 1, pageSize = 20 } = ctx.query;
-  let all = await model.batchGetPage({}, { page, pageSize });
+  let all = await model.batchGetPageWithoutPw({}, { page, pageSize });
   ctx.body = {
     code: 0,
     data: {
@@ -22,24 +24,40 @@ router.get("/list", async (ctx, next) => {
 });
 
 // 登陆
-router.post("/login", async (ctx, next) => {
-  let {  phone,password } = ctx.request.body;
-  let user = await model.get({phone});
+router.post("/login", async (ctx) => {
+  let { phone, password } = ctx.request.body;
+  let user = await model.get({ phone });
 
-  if(user.password == password) {
-    ctx.body = { code: 0, msg: '登录成功', data: {
-      ...user.dataValues
-    } };
+  if (user.password == password) {
+    const token = jwt.sign(user.dataValues, conf.jwtSecret, {
+      expiresIn: "7d",
+    });
+    ctx.session.token = token;
+
+    ctx.body = {
+      code: 0,
+      msg: "登录成功",
+      data: {
+        ...user.dataValues,
+        token: token,
+      },
+    };
   } else {
-    ctx.body = { code: 0, msg: '用户名或密码错误' };
+    ctx.body = { code: 1, msg: "账号密码错误" };
   }
 });
 
+// 登出
+router.get("/logout", async (ctx) => {
+  ctx.session.token = "";
+  ctx.body = { code: 0, msg: "退出登录成功" };
+});
+
 // 注册
-router.post("/register", async (ctx, next) => {
+router.post("/register", async (ctx) => {
   let userData = ctx.request.body;
   await model
-    .add(userData)
+    .addWithoutPw(userData)
     .then((returnData) => {
       ctx.body = { code: 0, msg: "注册成功", data: returnData };
     })
@@ -53,7 +71,7 @@ router.post("/register", async (ctx, next) => {
 });
 
 // 重置密码
-router.put("/rest-password", async (ctx, next) => {
+router.put("/rest-password", async (ctx) => {
   let { id, oldpassword, newpassword } = ctx.request.body;
   let lastPwd = null;
   let idIstrue = true; // 判断id是否正确
@@ -89,7 +107,7 @@ router.put("/rest-password", async (ctx, next) => {
 });
 
 // 修改用户信息
-router.put("/info", async (ctx, next) => {
+router.put("/info", async (ctx) => {
   let userData = ctx.request.body;
   delete userData.password;
   await model
@@ -103,7 +121,7 @@ router.put("/info", async (ctx, next) => {
 });
 
 // 删除用户
-router.delete("/one", async (ctx, next) => {
+router.delete("/one", async (ctx) => {
   let userData = ctx.request.body;
 
   await model

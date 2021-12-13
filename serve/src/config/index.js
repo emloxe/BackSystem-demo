@@ -16,7 +16,7 @@ const {
   dbPassword = '123456',
   databaseName = 'backsystem_demo',
   dbHost = '127.0.0.1',
-  dbPort = 3306, 
+  dbPort = 3306,
   logging = false,
 
   serverPort = 3001,
@@ -25,6 +25,7 @@ const {
 module.exports = {
   port: serverPort,
   api: '/api/v1',
+  jwtSecret: 'always_and_forever',
   db_config: {
     username: dbUser,
     password: dbPassword,

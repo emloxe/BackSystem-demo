@@ -3,6 +3,9 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import installElementPlus from './plugins/element';
+// 导入权限控制模块
+import './permission';
+import './assets/index.less';
 
 const app = createApp(App);
 installElementPlus(app);

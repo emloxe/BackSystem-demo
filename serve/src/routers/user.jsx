@@ -35,7 +35,6 @@
  *          description: Order not found
  * */
 
-
 /**
  * @swagger
  * /api/v1/user/list:
@@ -100,6 +99,30 @@
  *          description: Order not found
  * */
 
+/**
+ * @swagger
+ * /api/v1/user/logout:
+ *    get:
+ *      tags:
+ *      - 用户
+ *      summary: 登出
+ *      description:
+ *      produces:
+ *      - application/json
+ *      parameters:
+ *      - name: params
+ *        in: query
+ *        description: params
+ *        default: ""
+ *        required: false
+ *      responses:
+ *        200:
+ *          description: successful operation
+ *        400:
+ *          description: Invalid ID supplied
+ *        404:
+ *          description: Order not found
+ * */
 
 /**
  * @swagger
