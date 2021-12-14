@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
-import { TOKEN } from '@/config/constant';
+import { TOKEN, USERINFO } from '@/config/constant';
 import { setItem, getItem, removeAllItem } from '@/utils/storage';
 
 export default {
   namespaced: true,
   state: () => ({
     token: getItem(TOKEN) || '',
+    userInfo: getItem(USERINFO) || {},
   }),
   mutations: {
     setToken(state, token) {
@@ -14,7 +15,16 @@ export default {
     },
     setUserInfo(state, userInfo) {
       state.userInfo = userInfo;
+      setItem(USERINFO, userInfo);
     },
   },
-  actions: {},
+  actions: {
+    // logout() {
+    //   resetRouter();
+    //   this.commit('user/setToken', '');
+    //   this.commit('user/setUserInfo', {});
+    //   removeAllItem();
+    //   router.push('/login');
+    // },
+  },
 };

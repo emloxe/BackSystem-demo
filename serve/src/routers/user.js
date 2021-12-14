@@ -25,10 +25,10 @@ router.get("/list", async (ctx) => {
 
 // 登陆
 router.post("/login", async (ctx) => {
-  let { phone, password } = ctx.request.body;
-  let user = await model.get({ phone });
+  let { username = 1, password } = ctx.request.body;
+  let user = await model.get({ username });
 
-  if (user.password == password) {
+  if (user && user.password == password) {
     const token = jwt.sign(user.dataValues, conf.jwtSecret, {
       expiresIn: "7d",
     });

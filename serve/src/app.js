@@ -111,6 +111,10 @@ app.use(async (ctx, next) => {
             exp: 0,
             msg: "token过期",
           };
+          ctx.body = {
+            code: 401,
+            msg: "登录过期",
+          };
           return str;
         } else if (err.name == "JsonWebTokenError") {
           //无效的token
@@ -118,6 +122,10 @@ app.use(async (ctx, next) => {
             iat: 1,
             exp: 0,
             msg: "无效的token",
+          };
+          ctx.body = {
+            code: 401,
+            msg: "登录无效",
           };
           return str;
         }
@@ -134,12 +142,18 @@ app.use(async (ctx, next) => {
 
 if (conf.login) {
   // 如果配置登入， 路由重定向到登入页面
-  const allowPage = ['/favicon.ico',conf.api + "/login", conf.api + "/register", "/login", "/register"];
+  const allowPage = ['/favicon.ico',conf.api + "/user/login", conf.api + "/user/register", "/login", "/register"];
   app.use(async (ctx, next) => {
     let url = ctx.path;
     // if (!ctx.cookies.get("koa:sess") && allowPage.indexOf(url) < 0) {
     if (!ctx.session.token && allowPage.indexOf(url) < 0) {
-      ctx.response.redirect("/login");
+      ctx.status = 401;
+      if (!ctx.body) {
+        ctx.body = {
+          code: 401,
+          msg: "请登录",
+        };
+      }
       return;
     }
     await next();

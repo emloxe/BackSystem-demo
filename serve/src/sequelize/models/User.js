@@ -17,8 +17,11 @@ const tableStructure = {
   username: {
     allowNull: false,
     type: DataTypes.STRING,
+    unique: true,
+  },
+  chinesename: {
+    type: DataTypes.STRING,
     unique: false,
-    validate: {},
   },
   phone: {
     type: DataTypes.STRING,
@@ -28,7 +31,7 @@ const tableStructure = {
 
   password: {
     type: DataTypes.STRING,
-    default: 'e10adc3949ba59abbe56e057f20f883e'
+    default: '6789@jkl'
   },
 
   email: {

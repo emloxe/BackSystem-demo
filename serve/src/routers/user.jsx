@@ -82,10 +82,10 @@
  *         in: body
  *         schema:
  *           properties:
- *             phone:
+ *             username:
  *               type: "string"
- *               default: "123XXXXXXX"
- *               description: 手机号
+ *               default: "zhangsan"
+ *               description: 用户登录名
  *             password:
  *               type: "string"
  *               default: "123456"
@@ -123,6 +123,33 @@
  *        404:
  *          description: Order not found
  * */
+
+
+/**
+ * @swagger
+ * /api/v1/user/verify:
+ *    get:
+ *      tags:
+ *      - 用户
+ *      summary: 验证用户登录是否过期
+ *      description:
+ *      produces:
+ *      - application/json
+ *      parameters:
+ *      - name: params
+ *        in: query
+ *        description: params
+ *        default: ""
+ *        required: false
+ *      responses:
+ *        200:
+ *          description: successful operation
+ *        400:
+ *          description: Invalid ID supplied
+ *        404:
+ *          description: Order not found
+ * */
+
 
 /**
  * @swagger

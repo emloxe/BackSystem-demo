@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Layout from '@/layout/Index.vue';
 
 /**
@@ -19,10 +19,7 @@ const publicRoutes = [
 ];
 
 const router = createRouter({
-  history:
-    process.env.NODE_ENV === 'production'
-      ? createWebHistory(process.env.BASE_URL)
-      : createWebHashHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes: publicRoutes,
 });
 

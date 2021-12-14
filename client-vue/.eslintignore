@@ -4,5 +4,6 @@
 /build
 /src/assets
 /static
+/public
 
 postcss.config.js

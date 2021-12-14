@@ -12,12 +12,13 @@ module.exports = {
   //   // },
   // },
   devServer: {
-    proxy: {
-      '/v1/api': {
-        // 匹配所有以 '/api1'开头的请求路径
-        target: 'http://192.168.15.59:8505', // 代理目标的基础路径
-        changeOrigin: true,
-      },
-    },
+    port: 8085,
+    //   proxy: {
+    //     '/v1/api': {
+    //       // 匹配所有以 '/api1'开头的请求路径
+    //       target: 'http://127.0.0.1:3001', // 代理目标的基础路径
+    //       changeOrigin: true,
+    //     },
+    //   },
   },
 };
