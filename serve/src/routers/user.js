@@ -53,6 +53,15 @@ router.get("/logout", async (ctx) => {
   ctx.body = { code: 0, msg: "退出登录成功" };
 });
 
+
+// 验证用户登录是否过期
+router.get("/verify", async (ctx) => {
+  let payload = jwt.verify(ctx.session.token, conf.jwtSecret);
+  ctx.body = { code: 0, msg: "退出登录成功" };
+});
+
+
+
 // 注册
 router.post("/register", async (ctx) => {
   let userData = ctx.request.body;
