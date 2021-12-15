@@ -86,10 +86,12 @@
  *               type: "string"
  *               default: "zhangsan"
  *               description: 用户登录名
+ *               required: true
  *             password:
  *               type: "string"
  *               default: "123456"
  *               description: 密码
+ *               required: true
  *      responses:
  *        200:
  *          description: successful operation
@@ -123,33 +125,6 @@
  *        404:
  *          description: Order not found
  * */
-
-
-/**
- * @swagger
- * /api/v1/user/verify:
- *    get:
- *      tags:
- *      - 用户
- *      summary: 验证用户登录是否过期
- *      description:
- *      produces:
- *      - application/json
- *      parameters:
- *      - name: params
- *        in: query
- *        description: params
- *        default: ""
- *        required: false
- *      responses:
- *        200:
- *          description: successful operation
- *        400:
- *          description: Invalid ID supplied
- *        404:
- *          description: Order not found
- * */
-
 
 /**
  * @swagger

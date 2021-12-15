@@ -1,10 +1,11 @@
 const Router = require("koa-router"),
   uuid = require("uuid"),
   md5 = require("md5");
-const jwt = require("jsonwebtoken");
 const config = require("../config");
 const model = require("../models/user");
 const conf = require("../config");
+const {jwt} = require('../utils')
+
 
 const router = new Router();
 
@@ -29,9 +30,7 @@ router.post("/login", async (ctx) => {
   let user = await model.get({ username });
 
   if (user && user.password == password) {
-    const token = jwt.sign(user.dataValues, conf.jwtSecret, {
-      expiresIn: "7d",
-    });
+    const token = jwt.createToken(user.dataValues);
     ctx.session.token = token;
 
     ctx.body = {
@@ -52,15 +51,6 @@ router.get("/logout", async (ctx) => {
   ctx.session.token = "";
   ctx.body = { code: 0, msg: "退出登录成功" };
 });
-
-
-// 验证用户登录是否过期
-router.get("/verify", async (ctx) => {
-  let payload = jwt.verify(ctx.session.token, conf.jwtSecret);
-  ctx.body = { code: 0, msg: "退出登录成功" };
-});
-
-
 
 // 注册
 router.post("/register", async (ctx) => {

@@ -9,10 +9,10 @@ const bodyParser = require("koa-bodyparser");
 const session = require("koa-session"); // 信息持久化存储，记录当前用户登入账号
 const CSRF = require("koa-csrf"); // 跨站请求伪造
 const cors = require("@koa/cors");
-const jwt = require("jsonwebtoken");
 const registerRouter = require("./routers");
 const conf = require("./config"); // 默认配置
 const swaggerInstall = require("./swagger");
+const {jwt} = require('./utils')
 
 const app = new Koa();
 
@@ -101,48 +101,31 @@ app.use(session(CONFIG, app));
 app.use(async (ctx, next) => {
   const token = ctx.session.token;
   if (ctx.session.token) {
-    let payload = jwt.verify(token, conf.jwtSecret, (err, decoded) => {
-      if (err) {
-        console.log(err);
-        if (err.name == "TokenExpiredError") {
-          //token过期
-          let str = {
-            iat: 1,
-            exp: 0,
-            msg: "token过期",
-          };
-          ctx.body = {
-            code: 401,
-            msg: "登录过期",
-          };
-          return str;
-        } else if (err.name == "JsonWebTokenError") {
-          //无效的token
-          let str = {
-            iat: 1,
-            exp: 0,
-            msg: "无效的token",
-          };
-          ctx.body = {
-            code: 401,
-            msg: "登录无效",
-          };
-          return str;
-        }
-      } else {
-        return decoded;
-      }
-    });
-    if (payload.iat === 1) {
+    jwt.verifyToken(token).then((res) => {
+
+    }, (rej) => {
       ctx.session.token = "";
-    }
+      if (rej.name == "TokenExpiredError") {
+        //token过期
+        ctx.body = {
+          code: 401,
+          msg: "登录过期",
+        };
+      } else {
+        //无效的token
+        ctx.body = {
+          code: 401,
+          msg: "登录无效",
+        };
+      }
+    })
   }
   await next();
 });
 
 if (conf.login) {
   // 如果配置登入， 路由重定向到登入页面
-  const allowPage = ['/favicon.ico',conf.api + "/user/login", conf.api + "/user/register", "/login", "/register"];
+  const allowPage = ['/favicon.ico',conf.api + "/user/login", conf.api + "/user/register", "/login", "/register", "/verify"];
   app.use(async (ctx, next) => {
     let url = ctx.path;
     // if (!ctx.cookies.get("koa:sess") && allowPage.indexOf(url) < 0) {

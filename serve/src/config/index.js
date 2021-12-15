@@ -25,7 +25,6 @@ const {
 module.exports = {
   port: serverPort,
   api: '/api/v1',
-  jwtSecret: 'always_and_forever',
   login: true,
   db_config: {
     username: dbUser,

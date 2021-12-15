@@ -5,7 +5,7 @@ import store from './store';
 import installElementPlus from './plugins/element';
 // 导入权限控制模块
 import './permission';
-import './styles/index.less';
+import './styles/index.scss';
 
 const app = createApp(App);
 installElementPlus(app);
