@@ -9,9 +9,7 @@
     <div class="main-container">
       <div class="fixed-header">
         <!-- 顶部的 navbar -->
-        <navbar />
-        <!-- tags -->
-        <tags-view id="guide-tags"></tags-view>
+        <Header />
       </div>
       <!-- 内容区 -->
       <app-main />
@@ -20,10 +18,9 @@
 </template>
 
 <script setup>
-import Navbar from './components/Navbar';
+import Header from './components/Header/Index.vue';
 import Sidebar from './components/Sidebar/Index.vue';
 import AppMain from './components/AppMain';
-import TagsView from '@/components/TagsView';
 </script>
 
 <style lang="scss" scoped>

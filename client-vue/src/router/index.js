@@ -11,11 +11,11 @@ import ArticleCreaterRouter from './modules/ArticleCreate';
  * 私有路由表
  */
 export const privateRoutes = [
-  UserManageRouter,
   RoleListRouter,
   PermissionListRouter,
   ArticleRouter,
   ArticleCreaterRouter,
+  UserManageRouter,
 ];
 /**
  * 公开路由表

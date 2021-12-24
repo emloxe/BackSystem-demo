@@ -10,7 +10,6 @@ router.beforeEach(async (to, from, next) => {
   // 存在 token ，进入主页
   // if (store.state.user.token) {
   // 快捷访问
-  console.log(store.getters.token);
   if (store.getters.token) {
     if (to.path === '/login') {
       next('/');
