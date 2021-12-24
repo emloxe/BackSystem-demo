@@ -1,0 +1,110 @@
+[
+  {
+    "id": "612710a9ec87aa543c9c3420",
+    "username": "super-admin",
+    "title": "Super Administrator",
+    "openTime": "1433088000000",
+    "mobile": "188xxxx0001",
+    "password": "E10ADC3949BA59ABBE56E057F20F883E",
+    "avatar": "https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png",
+    "role": [
+      {
+        "id": "1",
+        "title": "Super administrator"
+      }
+    ],
+    "gender": "Male",
+    "nationality": "Han",
+    "province": "Beijing",
+    "remark": ["SuperAdministrator", "BOSS"],
+    "address": "3rd Floor, 11xx0 xx Avenue, Chaoyang District, Beijing",
+    "experience": [
+      {
+        "startTime": "1538323200000",
+        "endTime": "1551369600000",
+        "title": "Imooc",
+        "desc": "Mixed development of Jingdong Mall"
+      },
+      {
+        "startTime": "1614528000000",
+        "endTime": "1625068800000",
+        "title": "Imooc",
+        "desc": "uni-app develops enterprise-level small programs"
+      }
+    ],
+    "major": "Online vocational education platform",
+    "glory": "Leading online IT education brand in China"
+  },
+  {
+    "id": "612710a9ec87aa543c9c3421",
+    "username": "admin",
+    "title": "Administrator",
+    "openTime": "1559318400000",
+    "mobile": "188xxxx0002",
+    "password": "E10ADC3949BA59ABBE56E057F20F883E",
+    "avatar": "https://img4.sycdn.imooc.com/61110c2b0001152907400741-140-140.jpg",
+    "role": [
+      {
+        "id": "2",
+        "title": "Administrator"
+      }
+    ],
+    "gender": "Male",
+    "nationality": "Han",
+    "province": "Beijing",
+    "remark": ["Administrator", "Author", "Front-end development engineer"],
+    "address": "7th Floor, No. 11xx1 xx Avenue, Chaoyang District, Beijing",
+    "experience": [
+      {
+        "startTime": "1538323200000",
+        "endTime": "1551369600000",
+        "title": "Imooc",
+        "desc": "Mixed development of Jingdong Mall"
+      },
+      {
+        "startTime": "1614528000000",
+        "endTime": "1625068800000",
+        "title": "Imooc",
+        "desc": "uni-app develops enterprise-level small programs"
+      }
+    ],
+    "major": "Front-end development engineer",
+    "glory": "Helped many classmates to enter the first-tier domestic factories"
+  },
+  {
+    "id": "612710a9ec87aa543c9c3422",
+    "username": "test",
+    "title": "Staff",
+    "openTime": "1633017600000",
+    "mobile": "188xxxx0003",
+    "password": "E10ADC3949BA59ABBE56E057F20F883E",
+    "avatar": "https://res.lgdsunday.club/zhang-san.jpg",
+    "role": [
+      {
+        "id": "6",
+        "title": "Staff"
+      }
+    ],
+    "gender": "Male",
+    "nationality": "Han",
+    "province": "Beijing",
+    "remark": ["Test account"],
+    "address": "8th Floor, No. 11xx2, xx Avenue, Chaoyang District, Beijing",
+    "experience": [
+      {
+        "startTime": "1538323200000",
+        "endTime": "1551369600000",
+        "title": "Imooc",
+        "desc": "Mixed development of Jingdong Mall"
+      },
+      {
+        "startTime": "1614528000000",
+        "endTime": "1625068800000",
+        "title": "Imooc",
+        "desc": "uni-app develops enterprise-level small programs"
+      }
+    ],
+    "major": "Test permission account",
+    "glory": "Often appear with Li Si"
+  }
+]

@@ -1,0 +1,16 @@
+const router = require('koa-router')()
+const sys = require('./sys')
+const user = require('./user')
+const userManage = require('./user-manage')
+const role = require('./role')
+const permission = require('./permission')
+const articleList = require('./article-list')
+
+router.use('/sys', sys)
+router.use('/user', user)
+router.use('/user-manage', userManage)
+router.use('/role', role)
+router.use('/permission', permission)
+router.use('/article', articleList)
+
+module.exports = router.routes()

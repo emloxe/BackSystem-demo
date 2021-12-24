@@ -1,0 +1,110 @@
+[
+  {
+    "id": "612710a9ec87aa543c9c3420",
+    "openTime": "1433088000000",
+    "username": "super-admin",
+    "title": "超级管理员",
+    "mobile": "188xxxx0001",
+    "password": "E10ADC3949BA59ABBE56E057F20F883E",
+    "avatar": "https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png",
+    "role": [
+      {
+        "id": "1",
+        "title": "超级管理员"
+      }
+    ],
+    "gender": "男",
+    "nationality": "汉",
+    "province": "北京",
+    "remark": ["超级管理员", "BOSS"],
+    "address": "北京市朝阳区xx大道 11xx0 号 3 层",
+    "experience": [
+      {
+        "startTime": "1538323200000",
+        "endTime": "1551369600000",
+        "title": "慕课网",
+        "desc": "混合开发京东商城"
+      },
+      {
+        "startTime": "1614528000000",
+        "endTime": "1625068800000",
+        "title": "慕课网",
+        "desc": "uni-app 开发企业级小程序"
+      }
+    ],
+    "major": "在线职业教育平台",
+    "glory": "国内领先的线上 IT 教育品牌"
+  },
+  {
+    "id": "612710a9ec87aa543c9c3421",
+    "username": "admin",
+    "title": "管理员",
+    "openTime": "1559318400000",
+    "mobile": "188xxxx0002",
+    "password": "E10ADC3949BA59ABBE56E057F20F883E",
+    "avatar": "https://img4.sycdn.imooc.com/61110c2b0001152907400741-140-140.jpg",
+    "role": [
+      {
+        "id": "2",
+        "title": "管理员"
+      }
+    ],
+    "gender": "男",
+    "nationality": "汉",
+    "province": "北京",
+    "remark": ["管理员", "作者", "前端开发工程师"],
+    "address": "北京市朝阳区xx大道 11xx1 号 7 层",
+    "experience": [
+      {
+        "startTime": "1538323200000",
+        "endTime": "1551369600000",
+        "title": "慕课网",
+        "desc": "混合开发京东商城"
+      },
+      {
+        "startTime": "1614528000000",
+        "endTime": "1625068800000",
+        "title": "慕课网",
+        "desc": "uni-app 开发企业级小程序"
+      }
+    ],
+    "major": "前端开发工程师",
+    "glory": "帮助过多名同学进入国内一线大厂"
+  },
+  {
+    "id": "612710a9ec87aa543c9c3422",
+    "username": "test",
+    "title": "员工",
+    "openTime": "1633017600000",
+    "mobile": "188xxxx0003",
+    "password": "E10ADC3949BA59ABBE56E057F20F883E",
+    "avatar": "https://res.lgdsunday.club/zhang-san.jpg",
+    "role": [
+      {
+        "id": "6",
+        "title": "员工"
+      }
+    ],
+    "gender": "男",
+    "nationality": "汉",
+    "province": "北京",
+    "remark": ["测试账号"],
+    "address": "北京市朝阳区xx大道 11xx2 号 8 层",
+    "experience": [
+      {
+        "startTime": "1538323200000",
+        "endTime": "1551369600000",
+        "title": "慕课网",
+        "desc": "混合开发京东商城"
+      },
+      {
+        "startTime": "1614528000000",
+        "endTime": "1625068800000",
+        "title": "慕课网",
+        "desc": "uni-app 开发企业级小程序"
+      }
+    ],
+    "major": "测试权限账号",
+    "glory": "经常和李四一起出现"
+  }
+]

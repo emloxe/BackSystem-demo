@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "permissionName": "Staff management",
+    "permissionMark": "userManage",
+    "permissionDesc": "Staff management menu",
+    "children": [
+      {
+        "id": "1-1",
+        "permissionName": "Assigning Roles",
+        "permissionMark": "distributeRole",
+        "permissionDesc": "Assign roles to employees"
+      },
+      {
+        "id": "1-2",
+        "permissionName": "Import employees",
+        "permissionMark": "importUser",
+        "permissionDesc": "Import employees via excel"
+      },
+      {
+        "id": "1-3",
+        "permissionName": "Delete employee",
+        "permissionMark": "removeUser",
+        "permissionDesc": "Delete employee"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "permissionName": "Role list",
+    "permissionMark": "roleList",
+    "permissionDesc": "Role list menu",
+    "children": [
+      {
+        "id": "2-1",
+        "permissionName": "assign permissions",
+        "permissionMark": "distributePermission",
+        "permissionDesc": "Assign permissions to roles"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "permissionName": "Permission list",
+    "permissionMark": "permissionList",
+    "permissionDesc": "Permission list menu",
+    "children": []
+  },
+  {
+    "id": "4",
+    "permissionName": "Article ranking",
+    "permissionMark": "articleRanking",
+    "permissionDesc": "Article ranking menu",
+    "children": []
+  },
+  {
+    "id": "5",
+    "permissionName": "Create article",
+    "permissionMark": "articleCreate",
+    "permissionDesc": "Create article page",
+    "children": []
+  }
+]

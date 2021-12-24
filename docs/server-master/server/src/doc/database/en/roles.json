@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "title": "Super administrator",
+    "describe": "Unique account, can operate all functions",
+    "permissions": ["1", "1-1", "1-2", "1-3", "2", "2-1", "3", "4", "5"]
+  },
+  {
+    "id": "2",
+    "title": "Administrator",
+    "describe": "Designated by the super-manager, it can be multiple, to assist the super-management system",
+    "permissions": ["1", "1-2", "2", "3", "4", "5"]
+  },
+  {
+    "id": "3",
+    "title": "Personnel Manager",
+    "describe": "Responsible for personnel related business",
+    "permissions": []
+  },
+  {
+    "id": "4",
+    "title": "Sales manager",
+    "describe": "Responsible for sales related business",
+    "permissions": []
+  },
+  {
+    "id": "5",
+    "title": "Security captain",
+    "describe": "Responsible for security related business",
+    "permissions": []
+  },
+  {
+    "id": "6",
+    "title": "Staff",
+    "describe": "Ordinary employee",
+    "permissions": []
+  }
+]

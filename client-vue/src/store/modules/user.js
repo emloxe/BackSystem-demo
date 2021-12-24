@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { TOKEN, USERINFO } from '@/config/constant';
+import { TOKEN, USERINFO } from '@/config/index';
 import { setItem, getItem, removeAllItem } from '@/utils/storage';
 
 export default {

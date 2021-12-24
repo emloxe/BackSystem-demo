@@ -1,0 +1,54 @@
+[
+  {
+    "content": "Course Guide",
+    "timestamp": "Chapter One"
+  },
+  {
+    "content": "ESLint + Git Hooks, a standardized programming specification solution for major manufacturers",
+    "timestamp": "Chapter Two"
+  },
+  {
+    "content": "Project architecture solution to build a login infrastructure",
+    "timestamp": "Chapter Three"
+  },
+  {
+    "content": "Project architecture solution to build Layout infrastructure",
+    "timestamp": "Chapter Four"
+  },
+  {
+    "content": "General function development of front-end integrated solutions for back-end projects",
+    "timestamp": "Chapter Five"
+  },
+  {
+    "content": "Personal center page of vue3 + element plus comprehensive implementation solution",
+    "timestamp": "Chapter Six"
+  },
+  {
+    "content": "Implementation of user management page of excel, zip and front-end combined solution",
+    "timestamp": "Chapter Seven"
+  },
+  {
+    "content": "The role and permission page rendering of the permission control solution realizes the permission control function of the project",
+    "timestamp": "Chapter Eight"
+  },
+  {
+    "content": "List sorting solution to achieve popular article ranking",
+    "timestamp": "Chapter Nine"
+  },
+  {
+    "content": "Article editing solution to realize the function of creating articles",
+    "timestamp": "Chapter Ten"
+  },
+  {
+    "content": "Unified handling of error pages in the comprehensive error handling solution",
+    "timestamp": "Chapter Eleven"
+  },
+  {
+    "content": "Construction and release of project release solutions",
+    "timestamp": "Chapter Twelve"
+  },
+  {
+    "content": "Course summary",
+    "timestamp": "Chapter Thirteen"
+  }
+]
