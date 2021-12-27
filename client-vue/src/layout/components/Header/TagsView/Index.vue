@@ -5,15 +5,17 @@
         class="tags-view-item"
         :class="isActive(tag) ? 'active' : ''"
         :style="{
-          color: isActive(tag) ? $store.getters.cssVar.menuBg : '',
+          color: isActive(tag) ? menuBg : '',
         }"
         v-for="(tag, index) in $store.getters.tagsViewList"
         :key="tag.fullPath"
         :to="{ path: tag.fullPath }"
         @contextmenu.prevent="openMenu($event, index)"
       >
+        <div class="tab-background" data-v-3a3c05b2=""></div>
         {{ tag.title }}
-        <i class="el-icon-close" @click.prevent.stop="onCloseClick(index)" />
+        <el-icon :size="20"><close /></el-icon>
+        <i class="el-icon-close" @click.prevent.stop="onCloseClick(index, isActive(tag))" />
       </router-link>
     </el-scrollbar>
     <context-menu v-show="visible" :style="menuStyle" :index="selectIndex"></context-menu>
@@ -27,6 +29,10 @@ import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
 const route = useRoute();
 
+const store = useStore();
+
+const menuBg = store.getters.cssVar.menuBg;
+
 /**
  * 是否被选中
  */
@@ -37,8 +43,9 @@ const isActive = (tag) => {
 /**
  * 关闭 tag 的点击事件
  */
-const store = useStore();
-const onCloseClick = (index) => {
+
+const onCloseClick = (index, bool) => {
+  console.log(bool);
   store.commit('app/removeTagsView', {
     type: 'index',
     index: index,
@@ -87,42 +94,54 @@ watch(visible, (val) => {
   width: 100%;
 
   .tags-view-wrapper {
-    padding-top: 6px;
+    padding-top: 8px;
+
     .tags-view-item {
+      box-sizing: border-box;
       display: inline-block;
       position: relative;
       cursor: pointer;
-      min-width: 80px;
+      min-width: 130px;
       height: 36px;
+      margin-left: -2px;
       line-height: 36px;
       // border: 1px solid #d8dce5;
       color: #999;
       // background: #fff;
-      padding: 0 14px;
+      padding: 0 16px;
       text-align: left;
-      font-size: 14px;
+      font-size: 15px;
       border-radius: 8px 8px 0 0;
       &:first-of-type {
         margin-left: 15px;
+
+        &::before {
+          background-color: transparent !important;
+        }
       }
-      &:last-of-type {
+
+      &:first-of-type &:last-of-type {
         margin-right: 15px;
       }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: -1px;
+        width: 1px;
+        height: 16px;
+        background-color: #cecece;
+      }
       &.active {
-        position: relative;
+        z-index: 6;
         background-color: #fff;
         color: #fff;
         &::before {
-          content: '';
-          background: #fff;
-          display: inline-block;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          position: relative;
-          margin-right: 4px;
+          background-color: transparent !important;
         }
       }
+
       // close 按钮
       .el-icon-close {
         width: 16px;

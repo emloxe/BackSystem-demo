@@ -1,13 +1,11 @@
 <template>
   <ul class="context-menu-container">
-    <li @click="onRefreshClick">
-      {{ $t('msg.tagsView.refresh') }}
-    </li>
+    <li @click="onRefreshClick"><i class="icon-wrap"></i> {{ $t('msg.tagsView.refresh') }}</li>
     <li @click="onCloseRightClick">
-      {{ $t('msg.tagsView.closeRight') }}
+      <i class="icon-wrap"></i> {{ $t('msg.tagsView.closeRight') }}
     </li>
     <li @click="onCloseOtherClick">
-      {{ $t('msg.tagsView.closeOther') }}
+      <i class="icon-wrap"></i> {{ $t('msg.tagsView.closeOther') }}
     </li>
   </ul>
 </template>
@@ -50,18 +48,29 @@ const onCloseOtherClick = () => {
   background: #fff;
   z-index: 3000;
   list-style-type: none;
-  padding: 5px 0;
-  border-radius: 4px;
-  font-size: 12px;
+  padding: 14px 0;
+  border-radius: 6px;
+  font-size: 15px;
   font-weight: 400;
   color: #333;
-  box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.1);
+
   li {
     margin: 0;
-    padding: 7px 16px;
+    min-width: 100px;
+    padding: 0 20px 0 10px;
     cursor: pointer;
+    line-height: 30px;
     &:hover {
       background: #eee;
+    }
+
+    .icon-wrap {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: #333;
+      vertical-align: top;
     }
   }
 }

@@ -3,9 +3,12 @@
     <router-view v-slot="{ Component, route }">
       <transition name="fade-transform" mode="out-in">
         <keep-alive>
-          <component :is="Component" :key="route.path" />
+          <div class="app-main-center">
+            <component :is="Component" :key="route.path" />
+          </div>
         </keep-alive>
       </transition>
+      <p class="copyright">Copyright © 2021 ZWJ, All Rights Reserved</p>
     </router-view>
   </div>
 </template>
@@ -77,11 +80,25 @@ watchSwitchLang(() => {
 
 <style lang="scss" scoped>
 .app-main {
-  min-height: calc(100vh - 50px - 43px);
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
-  padding: 104px 20px 20px 20px;
+  padding: 150px 0px 20px 0px;
   box-sizing: border-box;
+}
+
+.app-main-center {
+  flex-grow: 1;
+}
+
+.copyright {
+  flex-grow: 0;
+
+  color: #808695;
+  text-align: center;
+  font-size: 14px;
 }
 </style>
