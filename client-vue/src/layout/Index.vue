@@ -18,9 +18,9 @@
 </template>
 
 <script setup>
-import Header from './components/Header/Index.vue';
-import Sidebar from './components/Sidebar/Index.vue';
-import AppMain from './components/AppMain';
+import Header from './Header/Index.vue';
+import Sidebar from './Sidebar/Index.vue';
+import AppMain from './AppMain';
 </script>
 
 <style lang="scss" scoped>

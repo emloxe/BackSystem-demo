@@ -7,6 +7,7 @@
 <script setup>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
+// eslint-disable-next-line no-unused-vars
 
 const store = useStore();
 const toggleClick = () => {

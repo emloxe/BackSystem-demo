@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars */
+import router from '@/router';
+
 import { LANG, TAGS_VIEW } from '@/config/index';
 import { setItem, getItem } from '@/utils/storage';
 
@@ -46,13 +48,24 @@ export default {
      */
     removeTagsView(state, payload) {
       if (payload.type === 'index') {
-        state.tagsViewList.splice(payload.index, 1);
+        const del = state.tagsViewList.splice(payload.index, 1);
+        // 如果要关闭的是活动页
+        if (del[0].fullPath === location.pathname) {
+          if (state.tagsViewList[payload.index]) {
+            router.push(state.tagsViewList[payload.index]);
+          } else {
+            router.push(state.tagsViewList[payload.index - 1]);
+          }
+        }
         return;
       } else if (payload.type === 'other') {
         state.tagsViewList.splice(payload.index + 1, state.tagsViewList.length - payload.index + 1);
         state.tagsViewList.splice(0, payload.index);
+
+        // todo 如果活动页被关闭
       } else if (payload.type === 'right') {
         state.tagsViewList.splice(payload.index + 1, state.tagsViewList.length - payload.index + 1);
+        // todo 如果活动页被关闭
       }
       setItem(TAGS_VIEW, state.tagsViewList);
     },

@@ -37,6 +37,7 @@ export default {
   },
   tagsView: {
     refresh: '刷新',
+    closeCurr: '关闭当前',
     closeRight: '关闭右侧',
     closeOther: '关闭其他',
   },

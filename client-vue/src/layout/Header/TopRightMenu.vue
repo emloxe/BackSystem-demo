@@ -1,9 +1,9 @@
 <template>
   <div class="right-menu">
     <!-- <header-search class="right-menu-item hover-effect"></header-search> -->
-    <!-- <screenfull class="right-menu-item hover-effect" />
-      <theme-picker class="right-menu-item hover-effect"></theme-picker>
-      <lang-select class="right-menu-item hover-effect" /> -->
+    <Screenfull class="right-menu-item hover-effect" />
+    <!-- <theme-picker class="right-menu-item hover-effect"></theme-picker> -->
+    <LangSelect class="right-menu-item hover-effect" />
     <!-- 头像 -->
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
@@ -28,11 +28,12 @@
 </template>
 
 <script setup>
-// import LangSelect from '@/components/LangSelect';
+import LangSelect from './topFun/LangSelect';
 // import ThemePicker from '@/components/ThemePicker';
-// import Screenfull from '@/components/Screenfull';
+// import Screenfull from './topFun/Screenfull';
 // import HeaderSearch from '@/components/HeaderSearch';
 // import Guide from '@/components/Guide';
+import Screenfull from '@/layout/Header/topFun/Screenfull';
 
 import { useStore } from 'vuex';
 

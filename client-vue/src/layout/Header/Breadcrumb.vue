@@ -16,10 +16,11 @@
 </template>
 
 <script setup>
-import { generateTitle } from '@/utils/index';
 import { ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
+
+import { generateTitle } from '@/utils/index';
 
 const route = useRoute();
 // 生成数组数据
@@ -71,6 +72,10 @@ const linkHoverColor = ref(store.getters.cssVar.menuBg)
   .redirect:hover {
     // 将来需要进行主题替换，所以这里不去写死样式
     color: v-bind(linkHoverColor);
+  }
+
+  ::v-deep .el-breadcrumb__separator {
+    color: #c0c4cc;
   }
 }
 </style>

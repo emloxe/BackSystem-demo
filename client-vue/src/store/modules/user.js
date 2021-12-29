@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { TOKEN, USERINFO } from '@/config/index';
 import { setItem, getItem, removeAllItem } from '@/utils/storage';
+import router, { resetRouter } from '@/router';
 
 export default {
   namespaced: true,

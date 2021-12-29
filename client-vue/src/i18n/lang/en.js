@@ -37,6 +37,7 @@ export default {
   },
   tagsView: {
     refresh: 'Refresh',
+    closeCurr: 'Close',
     closeRight: 'Close Rights',
     closeOther: 'Close Others',
   },

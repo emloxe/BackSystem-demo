@@ -1,6 +1,7 @@
 <template>
   <div class="tags-view-container" :style="{ backgroundColor: $store.getters.cssVar.containerBg }">
-    <el-scrollbar class="tags-view-wrapper">
+    <!-- <el-scrollbar> -->
+    <div class="tags-view-wrapper">
       <router-link
         class="tags-view-item"
         :class="isActive(tag) ? 'active' : ''"
@@ -13,20 +14,27 @@
         @contextmenu.prevent="openMenu($event, index)"
       >
         <div class="tab-background" data-v-3a3c05b2=""></div>
-        {{ tag.title }}
-        <el-icon :size="20"><close /></el-icon>
-        <i class="el-icon-close" @click.prevent.stop="onCloseClick(index, isActive(tag))" />
+        <div class="tab-title">{{ tag.title }}</div>
+        <el-icon v-show="$store.getters.tagsViewList.length > 1">
+          <close @click.prevent.stop="onCloseClick(index)"
+        /></el-icon>
       </router-link>
-    </el-scrollbar>
+    </div>
+    <!-- </el-scrollbar> -->
+
     <context-menu v-show="visible" :style="menuStyle" :index="selectIndex"></context-menu>
   </div>
 </template>
 
 <script setup>
-import ContextMenu from './ContextMenu.vue';
 import { ref, reactive, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
+// eslint-disable-next-line no-unused-vars
+import { Close } from '@element-plus/icons-vue';
+
+import ContextMenu from './ContextMenu.vue';
+
 const route = useRoute();
 
 const store = useStore();
@@ -44,8 +52,7 @@ const isActive = (tag) => {
  * 关闭 tag 的点击事件
  */
 
-const onCloseClick = (index, bool) => {
-  console.log(bool);
+const onCloseClick = (index) => {
   store.commit('app/removeTagsView', {
     type: 'index',
     index: index,
@@ -92,16 +99,28 @@ watch(visible, (val) => {
 <style lang="scss" scoped>
 .tags-view-container {
   width: 100%;
+  height: 44px;
+  // overflow-x: auto;
+  // overflow-y: hidden;
 
   .tags-view-wrapper {
+    display: inline-block;
     padding-top: 8px;
+    height: 36px;
+    padding-right: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
 
     .tags-view-item {
       box-sizing: border-box;
       display: inline-block;
       position: relative;
       cursor: pointer;
-      min-width: 130px;
+      width: 150px;
       height: 36px;
       margin-left: -2px;
       line-height: 36px;
@@ -142,6 +161,17 @@ watch(visible, (val) => {
         }
       }
 
+      ::v-deep .el-icon {
+        font-size: 12px;
+        float: right;
+        margin-top: 12px;
+        &:hover {
+          background-color: #b4bccc;
+          color: #fff;
+          border-radius: 6px;
+        }
+      }
+
       // close 按钮
       .el-icon-close {
         width: 16px;
@@ -162,6 +192,14 @@ watch(visible, (val) => {
           color: #fff;
         }
       }
+    }
+
+    .tab-title {
+      float: left;
+      width: 100px;
+      mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 24px), transparent);
+      overflow: hidden;
+      white-space: nowrap;
     }
   }
 }

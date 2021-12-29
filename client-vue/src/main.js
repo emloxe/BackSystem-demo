@@ -8,6 +8,10 @@ import installElementPlus from './plugins/element';
 import './permission';
 import './styles/index.scss';
 
+// 导入 svgIcon
+import installIcons from '@/icons';
+
 const app = createApp(App);
 installElementPlus(app);
+installIcons(app);
 app.use(store).use(router).use(i18n).mount('#app');

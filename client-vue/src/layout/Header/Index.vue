@@ -1,17 +1,19 @@
 <template>
   <div class="header">
     <div class="top clearfix" :style="{ backgroundColor: $store.getters.cssVar.headerTopBg }">
-      <Hamburger class="hamburger-container" />
-      <RightMenu />
+      <TopRightMenu />
     </div>
     <TagsView />
-    <breadcrumb id="guide-breadcrumb" class="breadcrumb-container" />
+    <div>
+      <Hamburger class="hamburger-container" />
+      <breadcrumb id="guide-breadcrumb" class="breadcrumb-container" />
+    </div>
   </div>
 </template>
 
 <script setup>
 import Hamburger from './Hamburger';
-import RightMenu from './RightMenu.vue';
+import TopRightMenu from './TopRightMenu.vue';
 import Breadcrumb from './Breadcrumb';
 import TagsView from './TagsView/Index.vue';
 
