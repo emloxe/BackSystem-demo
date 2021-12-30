@@ -34,6 +34,7 @@ export default {
   },
   toast: {
     switchLangSuccess: '切换语言成功',
+    colseTagsViewFail: '关闭当前标签页失败',
   },
   tagsView: {
     refresh: '刷新',

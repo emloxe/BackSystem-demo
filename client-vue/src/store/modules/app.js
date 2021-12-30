@@ -1,4 +1,9 @@
 /* eslint-disable no-unused-vars */
+
+import i18n from '@/i18n';
+
+import { ElMessage } from 'element-plus';
+
 import router from '@/router';
 
 import { LANG, TAGS_VIEW } from '@/config/index';
@@ -48,6 +53,11 @@ export default {
      */
     removeTagsView(state, payload) {
       if (payload.type === 'index') {
+        if (state.tagsViewList.length == 1) {
+          ElMessage.error(i18n.global.t('msg.toast.colseTagsViewFail'));
+          return false;
+        }
+
         const del = state.tagsViewList.splice(payload.index, 1);
         // 如果要关闭的是活动页
         if (del[0].fullPath === location.pathname) {

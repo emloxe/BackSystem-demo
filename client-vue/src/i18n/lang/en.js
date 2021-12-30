@@ -34,6 +34,7 @@ export default {
   },
   toast: {
     switchLangSuccess: 'Switch Language Success',
+    colseTagsViewFail: 'Failed to close the current tab',
   },
   tagsView: {
     refresh: 'Refresh',

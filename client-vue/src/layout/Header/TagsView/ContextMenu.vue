@@ -47,7 +47,7 @@ const store = useStore();
 
 const onClose = () => {
   store.commit('app/removeTagsView', {
-    type: 'right',
+    type: 'index',
     index: props.index,
   });
 };

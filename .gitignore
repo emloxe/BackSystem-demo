@@ -14,6 +14,6 @@ yarn-error.log*
 
 client/node_modules
 client-vue/node_modules
-client-vue3/node_modules
+client-vue/dist
 serve/node_modules
 

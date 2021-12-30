@@ -20,8 +20,10 @@ const messages = {
  * 返回当前 lang
  */
 function getLanguage() {
+  console.log(store, store.getters);
   return store && store.getters && store.getters.language;
 }
+console.log(getLanguage());
 const i18n = createI18n({
   // 使用 Composition API 模式，则需要将其设置为false
   legacy: false,

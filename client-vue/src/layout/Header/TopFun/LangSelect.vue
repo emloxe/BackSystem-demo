@@ -42,3 +42,5 @@ const handleSetLanguage = (lang) => {
   ElMessage.success(i18n.t('msg.toast.switchLangSuccess'));
 };
 </script>
+
+<style scoped></style>

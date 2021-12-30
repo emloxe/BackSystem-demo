@@ -28,12 +28,11 @@
 </template>
 
 <script setup>
-import LangSelect from './topFun/LangSelect';
+import LangSelect from './TopFun/LangSelect';
 // import ThemePicker from '@/components/ThemePicker';
-// import Screenfull from './topFun/Screenfull';
+import Screenfull from './TopFun/Screenfull';
 // import HeaderSearch from '@/components/HeaderSearch';
 // import Guide from '@/components/Guide';
-import Screenfull from '@/layout/Header/topFun/Screenfull';
 
 import { useStore } from 'vuex';
 
@@ -55,7 +54,7 @@ const logout = () => {
     display: inline-block;
     padding: 0 18px 0 0;
     font-size: 24px;
-    color: #5a5e66;
+    color: #cfcfcf;
     vertical-align: text-bottom;
 
     &.hover-effect {
