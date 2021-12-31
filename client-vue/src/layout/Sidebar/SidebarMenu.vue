@@ -37,4 +37,8 @@ const activeMenu = computed(() => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+::v-deep .is-active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+</style>

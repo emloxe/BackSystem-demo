@@ -101,4 +101,13 @@ watchSwitchLang(() => {
   text-align: center;
   font-size: 14px;
 }
+
+::v-deep .box-card {
+  margin: 15px;
+}
+
+::v-deep .left-page {
+  margin-top: 20px;
+  text-align: right;
+}
 </style>

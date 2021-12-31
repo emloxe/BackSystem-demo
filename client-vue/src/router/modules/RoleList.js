@@ -9,14 +9,5 @@ export default {
     title: 'user',
     icon: 'personnel',
   },
-  children: [
-    {
-      path: '/user/role',
-      component: () => import(/* webpackChunkName: "role-list" */ '@/views/role-list/index'),
-      meta: {
-        title: 'roleList',
-        icon: 'role',
-      },
-    },
-  ],
+  children: [],
 };

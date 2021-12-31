@@ -24,6 +24,9 @@ export default {
     excelImport: 'Excel导入',
     userManage: '员工管理',
     userInfo: '员工信息',
+    userInfoDetail: '员工详情',
+    organization: '机构组织',
+
     roleList: '角色列表',
     permissionList: '权限列表',
     article: '文章',

@@ -11,26 +11,52 @@ export default {
   },
   children: [
     {
+      path: '/user/role',
+      component: () => import(/* webpackChunkName: "role-list" */ '@/views/user-manage/Role'),
+      meta: {
+        title: 'roleList',
+        icon: 'role',
+      },
+    },
+    {
       path: '/user/manage',
-      component: () => import(/* webpackChunkName: "user-manage" */ '@/views/user-manage/index'),
+      component: () => import('@/views/user-manage/Index'),
       meta: {
         title: 'userManage',
         icon: 'personnel-manage',
       },
     },
     {
-      path: '/user/info/:id',
-      name: 'userInfo',
-      component: () => import(/* webpackChunkName: "user-manage" */ '@/views/user-info/index'),
-      props: true,
+      path: '/user/organization',
+      component: () => import('@/views/user-manage/Organization'),
+      meta: {
+        title: 'organization',
+        icon: 'personnel-manage',
+      },
+    },
+
+    {
+      path: '/user/Info',
+      component: () => import('@/views/user-manage/Info'),
       meta: {
         title: 'userInfo',
+        // icon: 'personnel-manage',
+      },
+    },
+
+    {
+      path: '/user/info/:id',
+      name: 'userInfo',
+      component: () => import('@/views/user-info/index'),
+      props: true,
+      meta: {
+        title: 'userInfoDetail',
       },
     },
     {
       path: '/user/import',
       name: 'import',
-      component: () => import(/* webpackChunkName: "user-manage" */ '@/views/import/index'),
+      component: () => import('@/views/import/index'),
       meta: {
         title: 'excelImport',
       },

@@ -1,6 +1,7 @@
 <template>
-  <i v-if="icon.includes('el-icon')" class="sub-el-icon" :class="icon"></i>
-  <svg-icon v-else :icon="icon"></svg-icon>
+  <div class="icon-wrap">
+    <svg-icon :icon="icon"></svg-icon>
+  </div>
   <span>{{ generateTitle(title) }}</span>
 </template>
 
@@ -19,4 +20,13 @@ defineProps({
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.icon-wrap {
+  width: 30px;
+
+  ::v-deep .svg-icon {
+    width: 1.2em;
+    height: 1.2em;
+  }
+}
+</style>

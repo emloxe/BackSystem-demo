@@ -67,15 +67,16 @@ export default {
             router.push(state.tagsViewList[payload.index - 1]);
           }
         }
-        return;
       } else if (payload.type === 'other') {
         state.tagsViewList.splice(payload.index + 1, state.tagsViewList.length - payload.index + 1);
         state.tagsViewList.splice(0, payload.index);
-
-        // todo 如果活动页被关闭
+        router.push(state.tagsViewList[0]);
       } else if (payload.type === 'right') {
         state.tagsViewList.splice(payload.index + 1, state.tagsViewList.length - payload.index + 1);
         // todo 如果活动页被关闭
+        if (!state.tagsViewList.find((item) => item.fullPath === location.pathname)) {
+          router.push(state.tagsViewList[state.tagsViewList.length - 1]);
+        }
       }
       setItem(TAGS_VIEW, state.tagsViewList);
     },

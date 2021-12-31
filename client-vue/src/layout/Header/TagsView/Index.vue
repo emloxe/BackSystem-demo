@@ -1,26 +1,26 @@
 <template>
   <div class="tags-view-container" :style="{ backgroundColor: $store.getters.cssVar.containerBg }">
-    <!-- <el-scrollbar> -->
-    <div class="tags-view-wrapper">
-      <router-link
-        class="tags-view-item"
-        :class="isActive(tag) ? 'active' : ''"
-        :style="{
-          color: isActive(tag) ? menuBg : '',
-        }"
-        v-for="(tag, index) in $store.getters.tagsViewList"
-        :key="tag.fullPath"
-        :to="{ path: tag.fullPath }"
-        @contextmenu.prevent="openMenu($event, index)"
-      >
-        <div class="tab-background" data-v-3a3c05b2=""></div>
-        <div class="tab-title">{{ tag.title }}</div>
-        <el-icon v-show="$store.getters.tagsViewList.length > 1">
-          <close @click.prevent.stop="onCloseClick(index)"
-        /></el-icon>
-      </router-link>
-    </div>
-    <!-- </el-scrollbar> -->
+    <el-scrollbar>
+      <div class="tags-view-wrapper">
+        <router-link
+          class="tags-view-item"
+          :class="isActive(tag) ? 'active' : ''"
+          :style="{
+            color: isActive(tag) ? menuBg : '',
+          }"
+          v-for="(tag, index) in $store.getters.tagsViewList"
+          :key="tag.fullPath"
+          :to="{ path: tag.fullPath }"
+          @contextmenu.prevent="openMenu($event, index)"
+        >
+          <div class="tab-background" data-v-3a3c05b2=""></div>
+          <div class="tab-title">{{ tag.title }}</div>
+          <el-icon v-show="$store.getters.tagsViewList.length > 1">
+            <close @click.prevent.stop="onCloseClick(index)"
+          /></el-icon>
+        </router-link>
+      </div>
+    </el-scrollbar>
 
     <context-menu v-show="visible" :style="menuStyle" :index="selectIndex"></context-menu>
   </div>
@@ -100,12 +100,14 @@ watch(visible, (val) => {
 .tags-view-container {
   width: 100%;
   height: 44px;
+  box-sizing: border-box;
+  padding-top: 8px;
   // overflow-x: auto;
   // overflow-y: hidden;
 
   .tags-view-wrapper {
     display: inline-block;
-    padding-top: 8px;
+    // padding-top: 8px;
     height: 36px;
     padding-right: 60px;
     white-space: nowrap;
@@ -153,7 +155,7 @@ watch(visible, (val) => {
         background-color: #cecece;
       }
       &.active {
-        z-index: 6;
+        z-index: 1;
         background-color: #fff;
         color: #fff;
         &::before {

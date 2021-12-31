@@ -24,6 +24,8 @@ export default {
     excelImport: 'ExcelImport',
     userManage: 'EmployeeManage',
     userInfo: 'UserInfo',
+    userInfoDetail: 'UserDetail',
+    organization: 'organization',
     roleList: 'RoleList',
     permissionList: 'PermissionList',
     article: 'article',

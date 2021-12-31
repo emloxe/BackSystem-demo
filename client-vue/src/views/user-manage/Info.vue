@@ -33,7 +33,7 @@
         @current-change="handleCurrentChange"
       >
         <el-table-column type="selection" width="40" />
-        <el-table-column fixed label="#" type="index" width="50" />
+        <el-table-column fixed type="index" width="50" />
         <el-table-column fixed prop="name" label="姓名" width="100" />
         <el-table-column prop="city" label="部门" width="140" />
         <el-table-column prop="city" label="职务" width="120" />

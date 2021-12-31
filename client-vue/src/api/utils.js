@@ -30,7 +30,7 @@ service.interceptors.response.use(
         store.dispatch('user/logout');
       }
     } else {
-      ElMessage.error('接口出错' + error.response.status);
+      ElMessage.error('接口出错');
     }
     return Promise.reject(error);
   }
