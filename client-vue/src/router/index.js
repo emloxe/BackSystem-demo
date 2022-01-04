@@ -3,7 +3,7 @@ import Layout from '@/layout/Index.vue';
 
 import UserManageRouter from './modules/UserManage';
 import RoleListRouter from './modules/RoleList';
-import PermissionListRouter from './modules/PermissionList';
+import permissionRouter from './modules/permission';
 import ArticleRouter from './modules/Article';
 import ArticleCreaterRouter from './modules/ArticleCreate';
 
@@ -12,7 +12,7 @@ import ArticleCreaterRouter from './modules/ArticleCreate';
  */
 export const privateRoutes = [
   RoleListRouter,
-  PermissionListRouter,
+  permissionRouter,
   ArticleRouter,
   ArticleCreaterRouter,
   UserManageRouter,

@@ -12,7 +12,7 @@
         @current-change="handleCurrentChange"
       >
         <el-table-column prop="name" label="名称" />
-        <el-table-column prop="level" width="100" label="负责人" />
+        <el-table-column prop="leader" width="100" label="负责人" />
       </el-table>
     </el-card>
     <el-card class="right">
@@ -43,16 +43,17 @@
 
         <el-table-column prop="address" label="权限角色" width="120">
           <template #default="scope">
-            <el-tag size="small" :type="scope.row.tag === '超级管理员' ? 'danger' : 'success'">{{
+            <el-tag size="small" :type="scope.row.tag === '自定义' ? 'danger' : 'success'">{{
               scope.row.tag
             }}</el-tag>
           </template>
         </el-table-column>
         <el-table-column prop="zip" label="备注" />
-        <el-table-column fixed="right" label="Operations" width="120">
+        <el-table-column fixed="right" label="操作" width="120">
           <template #default>
             <el-button type="text" size="small" @click="handleClick">详情</el-button>
             <el-button type="text" size="small">编辑</el-button>
+            <el-button type="text" color="#f56c6c" size="small">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -77,22 +78,22 @@ import { ref } from 'vue';
 const orgData = [
   {
     id: 1,
-    level: '2016-05-02',
+    leader: '张三',
     name: '信息科技有限公司',
     children: [
       {
         id: 11,
-        level: '2016-05-01',
+        leader: '李四',
         name: '采购部',
       },
       {
         id: 12,
-        level: '2016-05-01',
+        leader: '李四',
         name: '技术部',
         children: [
           {
             id: 121,
-            level: '2016-05-01',
+            leader: '李四',
             name: '技术部1部',
           },
         ],
@@ -101,27 +102,32 @@ const orgData = [
   },
   {
     id: 2,
-    level: '2016-05-04',
+    leader: '张三',
     name: '工作室',
     children: [
       {
         id: 21,
-        level: '2016-05-01',
+        leader: '李四',
         name: '采购部',
       },
       {
         id: 22,
-        level: '2016-05-01',
+        leader: '李四',
         name: '技术部',
         children: [
           {
             id: 221,
-            level: '2016-05-01',
+            leader: '李四',
             name: '技术部1部',
           },
         ],
       },
     ],
+  },
+  {
+    id: 3,
+    leader: '',
+    name: '未分类',
   },
 ];
 
@@ -142,10 +148,10 @@ const userData = [
     city: 'Los Angeles',
     address: 'No. 189, Grove St, Los Angeles',
     zip: 'CA 90036',
-    tag: 'Office',
+    tag: '自定义',
   },
   {
-    date: '2016-05-04',
+    date: '张三',
     name: 'Tom',
     age: '18',
     city: 'Los Angeles',
@@ -154,13 +160,13 @@ const userData = [
     tag: '超级管理员',
   },
   {
-    date: '2016-05-01',
+    date: '李四',
     name: 'Tom',
     age: '18',
     city: 'Los Angeles',
     address: 'No. 189, Grove St, Los Angeles',
     zip: 'CA 90036',
-    tag: 'Office',
+    tag: '自定义',
   },
 ];
 

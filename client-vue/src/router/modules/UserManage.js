@@ -11,26 +11,19 @@ export default {
   },
   children: [
     {
-      path: '/user/role',
-      component: () => import(/* webpackChunkName: "role-list" */ '@/views/user-manage/Role'),
+      path: '/user/organization',
+      component: () => import('@/views/user-manage/Organization'),
       meta: {
-        title: 'roleList',
-        icon: 'role',
+        title: 'organization',
+        icon: 'personnel-manage',
       },
     },
+
     {
       path: '/user/manage',
       component: () => import('@/views/user-manage/Index'),
       meta: {
         title: 'userManage',
-        icon: 'personnel-manage',
-      },
-    },
-    {
-      path: '/user/organization',
-      component: () => import('@/views/user-manage/Organization'),
-      meta: {
-        title: 'organization',
         icon: 'personnel-manage',
       },
     },

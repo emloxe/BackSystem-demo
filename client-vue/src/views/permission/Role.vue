@@ -20,14 +20,28 @@
       >
         <el-table-column type="selection" width="40" />
         <el-table-column fixed label="#" type="index" width="50" />
+
         <el-table-column fixed prop="name" label="名称" width="150" />
         <el-table-column prop="describe" label="描述" />
       </el-table>
     </el-card>
     <el-card class="right">
+      <el-divider> 基础信息 </el-divider>
+      <div style="height: 30px"></div>
+      <el-form :label-position="right" label-width="100px" :model="form" style="max-width: 460px">
+        <el-form-item label="名称">
+          <el-input v-model="form.name"></el-input>
+        </el-form-item>
+
+        <el-form-item label="描述">
+          <el-input v-model="form.desc"></el-input>
+        </el-form-item>
+      </el-form>
       <div style="margin-bottom: 10px; text-align: right">
         <el-button type="primary">确认</el-button>
       </div>
+
+      <el-divider> 权限列表 </el-divider>
       <el-tree
         :data="treeData"
         show-checkbox
@@ -36,12 +50,16 @@
         :expand-on-click-node="false"
         :props="{ class: customNodeClass }"
       />
+
+      <div style="margin-bottom: 10px; text-align: right">
+        <el-button type="primary">确认</el-button>
+      </div>
     </el-card>
   </div>
 </template>
 
 <script setup>
-// import { ref } from 'vue';
+import { ref } from 'vue';
 
 const roleData = [
   {
@@ -57,6 +75,8 @@ const roleData = [
     describe: '',
   },
 ];
+
+const form = ref({});
 
 const handleCurrentChange = (val) => {
   console.log(`current page: ${val}`);
@@ -145,4 +165,8 @@ const treeData = [
 //   display: flex;
 //   flex-direction: row;
 // }
+
+.right::v-deep .el-tree {
+  padding: 10px 0 20px 60px;
+}
 </style>

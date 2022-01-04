@@ -21,11 +21,11 @@
       @current-change="handleCurrentChange"
     >
       <el-table-column type="selection" width="40" />
-      <el-table-column prop="name" label="名称" width="220" />
-      <el-table-column prop="id" label="id" width="80" />
-      <el-table-column prop="id" label="负责人" width="140" />
+      <el-table-column prop="name" label="名称" width="250" />
+      <el-table-column prop="id" label="负责人" width="160" />
+      <el-table-column prop="id" label="人数" width="140" />
 
-      <el-table-column prop="level" label="备注" />
+      <el-table-column prop="remark" label="备注" />
       <el-table-column fixed="right" label="操作" width="120">
         <template #default="scope">
           <el-button type="text" size="small" @click.prevent="deleteRow(scope.$index, tableData)">
@@ -50,22 +50,22 @@ export default {
       tableData: [
         {
           id: 1,
-          level: '2016-05-02',
+          remark: '',
           name: '信息科技有限公司',
           children: [
             {
               id: 11,
-              level: '2016-05-01',
+              remark: '',
               name: '采购部',
             },
             {
               id: 12,
-              level: '2016-05-01',
+              remark: '',
               name: '技术部',
               children: [
                 {
                   id: 121,
-                  level: '2016-05-01',
+                  remark: '',
                   name: '技术部1部',
                 },
               ],
@@ -74,22 +74,22 @@ export default {
         },
         {
           id: 2,
-          level: '2016-05-04',
+          remark: '',
           name: '工作室',
           children: [
             {
               id: 21,
-              level: '2016-05-01',
+              remark: '',
               name: '采购部',
             },
             {
               id: 22,
-              level: '2016-05-01',
+              remark: '',
               name: '技术部',
               children: [
                 {
                   id: 221,
-                  level: '2016-05-01',
+                  remark: '',
                   name: '技术部1部',
                 },
               ],

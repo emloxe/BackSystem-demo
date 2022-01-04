@@ -28,7 +28,9 @@ export default {
     organization: '机构组织',
 
     roleList: '角色列表',
-    permissionList: '权限列表',
+    permission: '权限',
+    permissionOrganization: '部门权限',
+
     article: '文章',
     articleRanking: '文章排名',
     articleCreate: '创建文章',

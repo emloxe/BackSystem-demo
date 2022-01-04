@@ -27,7 +27,9 @@ export default {
     userInfoDetail: 'UserDetail',
     organization: 'organization',
     roleList: 'RoleList',
-    permissionList: 'PermissionList',
+    permission: 'Permission',
+    permissionOrganization: 'permissionOrganization',
+
     article: 'article',
     articleRanking: 'ArticleRanking',
     articleCreate: 'ArticleCreate',
