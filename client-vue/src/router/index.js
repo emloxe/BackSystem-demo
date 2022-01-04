@@ -1,11 +1,14 @@
-import { createRouter, createWebHistory } from 'vue-router';
+// eslint-disable-next-line no-unused-vars
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
 import Layout from '@/layout/Index.vue';
+import Dashboard from '@/views/dashboard/Index.vue';
 
 import UserManageRouter from './modules/UserManage';
 import RoleListRouter from './modules/RoleList';
 import permissionRouter from './modules/permission';
 import ArticleRouter from './modules/Article';
 import ArticleCreaterRouter from './modules/ArticleCreate';
+import mockRouter from './modules/mock';
 
 /**
  * 私有路由表
@@ -16,6 +19,7 @@ export const privateRoutes = [
   ArticleRouter,
   ArticleCreaterRouter,
   UserManageRouter,
+  mockRouter,
 ];
 /**
  * 公开路由表
@@ -29,30 +33,46 @@ const publicRoutes = [
   {
     path: '/',
     name: 'Layout',
-    redirect: '/profile',
+    redirect: '/index',
     component: Layout,
     children: [
       {
-        path: '/profile',
-        name: 'profile',
-        component: () => import(/* webpackChunkName: "profile" */ '@/views/profile/index'),
+        path: '/index',
+        name: 'index',
+        component: Dashboard,
         meta: {
-          title: 'profile',
+          title: 'index',
           icon: 'el-icon-user',
         },
       },
       {
-        path: '/404',
-        name: '404',
-        component: () => import(/* webpackChunkName: "error-page" */ '@/views/error-page/404'),
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect/Index'),
       },
     ],
+  },
+  {
+    path: '/401',
+    name: '401',
+    component: () => import(/* webpackChunkName: "error-page" */ '@/views/error-page/401'),
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes: [...publicRoutes, ...privateRoutes],
+  routes: [
+    ...publicRoutes,
+    ...privateRoutes,
+    {
+      // 404 page must be placed at the end !!!
+      path: '/:pathMatch(.*)*',
+      name: '404',
+      component: () => import(/* webpackChunkName: "error-page" */ '@/views/error-page/404'),
+      meta: {
+        title: '找不到页面',
+      },
+    },
+  ],
 });
 
 export default router;

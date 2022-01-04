@@ -30,6 +30,7 @@ import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 // eslint-disable-next-line no-unused-vars
 import { Refresh, Close } from '@element-plus/icons-vue';
+const store = useStore();
 
 const props = defineProps({
   index: {
@@ -40,10 +41,18 @@ const props = defineProps({
 
 const router = useRouter();
 const onRefreshClick = () => {
-  router.go(0);
-};
+  // const view = store.getters.tagsViewList[props.index];
 
-const store = useStore();
+  router.go(0);
+  // this.$store.dispatch('tagsView/delCachedView', props.index).then(() => {
+  //   const { fullPath } = view;
+  //   this.$nextTick(() => {
+  //     this.$router.replace({
+  //       path: '/redirect' + fullPath,
+  //     });
+  //   });
+  // });
+};
 
 const onClose = () => {
   store.commit('app/removeTagsView', {

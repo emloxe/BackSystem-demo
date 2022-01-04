@@ -19,6 +19,7 @@ export default {
     `,
   },
   route: {
+    index: 'Index',
     profile: 'Profile',
     user: 'user',
     excelImport: 'ExcelImport',
@@ -35,6 +36,10 @@ export default {
     articleCreate: 'ArticleCreate',
     articleDetail: 'ArticleDetail',
     articleEditor: 'ArticleEditor',
+
+    mock: 'Mock',
+    mockList: 'MockList',
+    mockHelp: 'Help',
   },
   toast: {
     switchLangSuccess: 'Switch Language Success',

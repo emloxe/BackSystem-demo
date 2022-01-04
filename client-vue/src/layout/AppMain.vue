@@ -47,15 +47,17 @@ watch(
   (to, from) => {
     if (!isTags(to.path)) return;
     const { fullPath, meta, name, params, path, query } = to;
-    store.commit('app/addTagsViewList', {
-      fullPath,
-      meta,
-      name,
-      params,
-      path,
-      query,
-      title: getTitle(to),
-    });
+    if (!['404'].includes(name)) {
+      store.commit('app/addTagsViewList', {
+        fullPath,
+        meta,
+        name,
+        params,
+        path,
+        query,
+        title: getTitle(to),
+      });
+    }
   },
   {
     immediate: true,

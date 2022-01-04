@@ -1,5 +1,5 @@
 <template>
-  <h1 class="">欢迎访问！</h1>
+  <div class="">欢迎访问！</div>
 </template>
 
 <script setup>

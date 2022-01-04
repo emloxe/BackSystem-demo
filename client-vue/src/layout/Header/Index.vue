@@ -32,5 +32,9 @@ import {} from 'vue';
     padding: 6px 0;
     border-bottom: 1px solid rgb(238, 238, 238);
   }
+
+  ::v-deep .right-menu .svg-icon {
+    color: #e2e2e2;
+  }
 }
 </style>

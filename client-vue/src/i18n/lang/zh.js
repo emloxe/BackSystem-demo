@@ -19,6 +19,8 @@ export default {
     `,
   },
   route: {
+    index: '首页',
+
     profile: '个人中心',
     user: '用户',
     excelImport: 'Excel导入',
@@ -36,6 +38,10 @@ export default {
     articleCreate: '创建文章',
     articleDetail: '文章详情',
     articleEditor: '文章编辑',
+
+    mock: 'Mock',
+    mockList: 'Mock列表',
+    mockHelp: '使用帮助',
   },
   toast: {
     switchLangSuccess: '切换语言成功',
