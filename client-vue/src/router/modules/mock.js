@@ -26,5 +26,12 @@ export default {
         icon: 'personnel-manage',
       },
     },
+    {
+      path: '/mock/create',
+      component: () => import('@/views/mock/Create'),
+      meta: {
+        title: 'mockCreate',
+      },
+    },
   ],
 };

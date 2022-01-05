@@ -4,7 +4,7 @@
     <sidebar
       id="guide-sidebar"
       class="sidebar-container"
-      :style="{ backgroundColor: $store.getters.cssVar.menuBg }"
+      :style="{ backgroundColor: $store.getters.cssVar.sidebarBg }"
     />
     <div class="main-container">
       <div class="fixed-header">

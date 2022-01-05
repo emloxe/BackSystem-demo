@@ -11,6 +11,6 @@
   "light-9": "color(primary tint(90%))",
   "subMenuHover": "color(primary tint(70%))",
   "subMenuBg": "color(primary tint(80%))",
-  "menuHover": "color(primary tint(90%))",
-  "menuBg": "color(primary)"
+  "sidebarHover": "color(primary tint(90%))",
+  "sidebarBg": "color(primary)"
 }

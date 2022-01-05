@@ -182,14 +182,8 @@ const handleCurrentChange = (val) => {
 
 <style lang="scss" scoped>
 .full-wrap {
-  display: flex;
-  margin: 15px;
   .left {
     width: 400px;
-    margin-right: 15px;
-  }
-  .right {
-    flex: 1;
   }
 }
 </style>

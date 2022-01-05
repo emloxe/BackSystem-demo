@@ -120,14 +120,8 @@ const roles = [
 
 <style lang="scss" scoped>
 .full-wrap {
-  display: flex;
-  margin: 15px;
   .left {
     width: 600px;
-    margin-right: 15px;
-  }
-  .right {
-    flex: 1;
   }
 }
 

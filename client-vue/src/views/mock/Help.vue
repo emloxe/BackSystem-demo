@@ -1,5 +1,8 @@
 <template>
   <el-card class="box-card">
+    文档地址：<a href="https://github.com/nuysoft/Mock/wiki/Syntax-Specification"
+      >https://github.com/nuysoft/Mock/wiki/Syntax-Specification</a
+    >
     <h1>语法规范</h1>
 
     <p>Mock.js 的语法规范包括两部分：</p>

@@ -6,7 +6,7 @@
           class="tags-view-item"
           :class="isActive(tag) ? 'active' : ''"
           :style="{
-            color: isActive(tag) ? menuBg : '',
+            color: isActive(tag) ? sidebarBg : '',
           }"
           v-for="(tag, index) in $store.getters.tagsViewList"
           :key="tag.fullPath"
@@ -39,7 +39,7 @@ const route = useRoute();
 
 const store = useStore();
 
-const menuBg = store.getters.cssVar.menuBg;
+const sidebarBg = store.getters.cssVar.sidebarBg;
 
 /**
  * 是否被选中

@@ -13,7 +13,7 @@ export default {
      */
     setMainColor(state, newColor) {
       state.mainColor = newColor;
-      state.variables.menuBg = newColor;
+      state.variables.sidebarBg = newColor;
       setItem(MAIN_COLOR, newColor);
     },
   },

@@ -81,11 +81,12 @@ watchSwitchLang(() => {
 </script>
 
 <style lang="scss" scoped>
+@import '~@/styles/variables.scss';
+
 .app-main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
   position: relative;
   overflow: hidden;
   padding: 150px 0px 20px 0px;
@@ -99,17 +100,35 @@ watchSwitchLang(() => {
 .copyright {
   flex-grow: 0;
 
+  margin-top: 10px;
+
   color: #808695;
   text-align: center;
   font-size: 14px;
 }
 
 ::v-deep .box-card {
-  margin: 15px;
+  margin: $spacing;
 }
 
 ::v-deep .left-page {
   margin-top: 20px;
   text-align: right;
+}
+
+::v-deep .full-wrap {
+  display: flex;
+  margin: $spacing;
+  .left {
+    margin-right: $spacing;
+  }
+  .right {
+    flex: 1;
+  }
+}
+
+::v-depp .form-center {
+  width: 600px;
+  margin: auto;
 }
 </style>

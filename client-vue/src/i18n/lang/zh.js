@@ -42,6 +42,7 @@ export default {
     mock: 'Mock',
     mockList: 'Mock列表',
     mockHelp: '使用帮助',
+    mockCreate: '创建模拟数据',
   },
   toast: {
     switchLangSuccess: '切换语言成功',

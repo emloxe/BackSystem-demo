@@ -39,7 +39,8 @@ export default {
 
     mock: 'Mock',
     mockList: 'MockList',
-    mockHelp: 'Help',
+    mockHelp: 'MockHelp',
+    mockCreate: 'CreateMock',
   },
   toast: {
     switchLangSuccess: 'Switch Language Success',
