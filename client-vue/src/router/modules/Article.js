@@ -14,6 +14,7 @@ export default {
       meta: {
         title: 'articleRanking',
         icon: 'article-ranking',
+        isHide: true,
       },
     },
     {

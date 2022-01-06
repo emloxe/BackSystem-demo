@@ -54,7 +54,12 @@ const publicRoutes = [
   {
     path: '/401',
     name: '401',
+
     component: () => import(/* webpackChunkName: "error-page" */ '@/views/error-page/401'),
+    meta: {
+      title: '无预览权限', // todo i18n
+      isHide: true,
+    },
   },
 ];
 
@@ -69,7 +74,8 @@ const router = createRouter({
       name: '404',
       component: () => import(/* webpackChunkName: "error-page" */ '@/views/error-page/404'),
       meta: {
-        title: '找不到页面',
+        title: '找不到页面', // todo i18n
+        isHide: true,
       },
     },
   ],

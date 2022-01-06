@@ -1,5 +1,5 @@
 <template>
-  <div class="icon-wrap">
+  <div v-if="icon" class="icon-wrap">
     <svg-icon :icon="icon"></svg-icon>
   </div>
   <span>{{ generateTitle(title) }}</span>

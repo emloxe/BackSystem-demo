@@ -3,10 +3,10 @@
   <el-menu
     :default-active="activeMenu"
     :collapse="!$store.getters.sidebarOpened"
+    :unique-opened="true"
     :background-color="$store.getters.cssVar.sidebarBg"
     :text-color="$store.getters.cssVar.sidebarText"
     :active-text-color="$store.getters.cssVar.sidebarActiveText"
-    :unique-opened="true"
     router
   >
     <sidebar-item v-for="item in routes" :key="item.path" :route="item"></sidebar-item>
@@ -38,7 +38,26 @@ const activeMenu = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+@import '~@/styles/variables.scss';
+
 ::v-deep .is-active {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+// ::v-deep .el-menu {
+//   background-color: $sidebarBg;
+
+//   .el-menu-item {
+//     // background-color: $sidebarBg;
+//     color: $sidebarText;
+
+//     &:hover {
+//       background-color: rgba(0, 0, 0, 0.1);
+//     }
+//   }
+
+//   &.el-menu--inline {
+//     background-color: $subMenuBg;
+//   }
+// }
 </style>

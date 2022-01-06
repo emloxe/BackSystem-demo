@@ -1,7 +1,7 @@
 <template>
   <div class="tags-view-container" :style="{ backgroundColor: $store.getters.cssVar.containerBg }">
-    <el-scrollbar>
-      <div class="tags-view-wrapper">
+    <div class="tags-view-wrapper">
+      <scroll-pane ref="scrollPane" @scroll="handleScroll">
         <router-link
           class="tags-view-item"
           :class="isActive(tag) ? 'active' : ''"
@@ -19,20 +19,26 @@
             <close @click.prevent.stop="onCloseClick(index)"
           /></el-icon>
         </router-link>
-      </div>
-    </el-scrollbar>
+        <span style="display: inline-block; width: 30px"></span>
+      </scroll-pane>
+    </div>
 
     <context-menu v-show="visible" :style="menuStyle" :index="selectIndex"></context-menu>
+
+    <div class="refresh-btn">
+      <el-icon><refresh /></el-icon>
+    </div>
   </div>
 </template>
 
 <script setup>
+// eslint-disable-next-line no-unused-vars
+import { Refresh, Close } from '@element-plus/icons-vue';
 import { ref, reactive, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
-// eslint-disable-next-line no-unused-vars
-import { Close } from '@element-plus/icons-vue';
 
+import ScrollPane from './ScrollPane';
 import ContextMenu from './ContextMenu.vue';
 
 const route = useRoute();
@@ -84,6 +90,10 @@ const closeMenu = () => {
   visible.value = false;
 };
 
+const handleScroll = () => {
+  closeMenu();
+};
+
 /**
  * 监听变化
  */
@@ -98,6 +108,7 @@ watch(visible, (val) => {
 
 <style lang="scss" scoped>
 .tags-view-container {
+  position: relative;
   width: 100%;
   height: 44px;
   box-sizing: border-box;
@@ -106,10 +117,10 @@ watch(visible, (val) => {
   // overflow-y: hidden;
 
   .tags-view-wrapper {
-    display: inline-block;
+    // display: inline-block;
     // padding-top: 8px;
     height: 36px;
-    padding-right: 60px;
+    padding-right: 40px;
     white-space: nowrap;
     overflow: hidden;
 
@@ -202,6 +213,26 @@ watch(visible, (val) => {
       mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 24px), transparent);
       overflow: hidden;
       white-space: nowrap;
+    }
+  }
+
+  .refresh-btn {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 36px;
+    text-align: center;
+
+    cursor: pointer;
+
+    border-radius: 4px;
+    background-color: #fff;
+    transition: box-shadow 0.5s;
+    box-shadow: 0 0 5px rgba(200, 200, 200, 0.1);
+    &:hover {
+      box-shadow: 0 0 5px rgba(200, 200, 200, 0.3);
     }
   }
 }

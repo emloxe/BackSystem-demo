@@ -1,8 +1,6 @@
 <template>
   <div class="errPage-container">
-    <el-button icon="el-icon-arrow-left" class="pan-back-btn" @click="back">
-      返回
-    </el-button>
+    <el-button icon="el-icon-arrow-left" class="pan-back-btn" @click="back"> 返回 </el-button>
     <el-row>
       <el-col :span="12">
         <h1 class="text-jumbo text-ginormous">Oops!</h1>
@@ -20,12 +18,7 @@
         </ul>
       </el-col>
       <el-col :span="12">
-        <img
-          :src="errGif"
-          width="313"
-          height="428"
-          alt="Girl has dropped her ice cream."
-        />
+        <img :src="errGif" width="313" height="428" alt="Girl has dropped her ice cream." />
       </el-col>
     </el-row>
     <el-dialog v-model="dialogVisible" title="随便看">
@@ -35,25 +28,23 @@
 </template>
 
 <script setup>
-import gif401 from '@/assets/401_images/401.gif'
-import { ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import gif401 from '@/assets/401_images/401.gif';
+import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
-const errGif = ref(gif401 + '?' + +new Date())
-const ewizardClap = ref(
-  'https://wpimg.wallstcn.com/007ef517-bafd-4066-aae4-6883632d9646'
-)
-const dialogVisible = ref(false)
+const errGif = ref(gif401 + '?' + +new Date());
+const ewizardClap = ref('https://wpimg.wallstcn.com/007ef517-bafd-4066-aae4-6883632d9646');
+const dialogVisible = ref(false);
 
-const route = useRoute()
-const router = useRouter()
+const route = useRoute();
+const router = useRouter();
 const back = () => {
   if (route.query.noGoBack) {
-    router.push({ path: '/' })
+    router.push({ path: '/' });
   } else {
-    router.go(-1)
+    router.go(-1);
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
