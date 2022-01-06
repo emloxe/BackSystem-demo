@@ -32,14 +32,16 @@
 </template>
 
 <script setup>
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
+
 import { Refresh, Close } from '@element-plus/icons-vue';
 import { ref, reactive, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
-
+import { isTags } from '@/utils/tags';
 import ScrollPane from './ScrollPane';
 import ContextMenu from './ContextMenu.vue';
+import { getTitle } from '@/utils/tags';
 
 const route = useRoute();
 
@@ -104,6 +106,48 @@ watch(visible, (val) => {
     document.body.removeEventListener('click', closeMenu);
   }
 });
+
+const addTag = (to) => {
+  if (!isTags(to.path)) return;
+  const { fullPath, meta, name, params, path, query } = to;
+  store.commit('app/addTagsViewList', {
+    fullPath,
+    meta,
+    name,
+    params,
+    path,
+    query,
+    title: getTitle(to),
+  });
+};
+
+const moveToCurrentTag = (to) => {
+  // if (!isTags(to.path)) return;
+  // const { fullPath, meta, name, params, path, query } = to;
+  // if (!['404', 'login'].includes(name)) {
+  //   store.commit('app/addTagsViewList', {
+  //     fullPath,
+  //     meta,
+  //     name,
+  //     params,
+  //     path,
+  //     query,
+  //     title: getTitle(to),
+  //   });
+  // }
+};
+
+//
+watch(
+  route,
+  (to) => {
+    addTag(to);
+    moveToCurrentTag();
+  },
+  {
+    immediate: true,
+  }
+);
 </script>
 
 <style lang="scss" scoped>

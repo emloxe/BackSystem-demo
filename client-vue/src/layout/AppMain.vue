@@ -15,27 +15,13 @@
 
 <script setup>
 import { watch } from 'vue';
-import { isTags } from '@/utils/tags';
-import { generateTitle, watchSwitchLang } from '@/utils/i18n';
+
+import { watchSwitchLang } from '@/utils/i18n';
+import { getTitle } from '@/utils/tags';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
 
 const route = useRoute();
-
-/**
- * 生成 title
- */
-const getTitle = (route) => {
-  let title = '';
-  if (!route.meta) {
-    // 处理无 meta 的路由
-    const pathArr = route.path.split('/');
-    title = pathArr[pathArr.length - 1];
-  } else {
-    title = generateTitle(route.meta.title);
-  }
-  return title;
-};
 
 /**
  * 监听路由变化
@@ -44,24 +30,7 @@ const store = useStore();
 watch(
   route,
   // eslint-disable-next-line no-unused-vars
-  (to, from) => {
-    if (!isTags(to.path)) return;
-    const { fullPath, meta, name, params, path, query } = to;
-    if (!['404'].includes(name)) {
-      store.commit('app/addTagsViewList', {
-        fullPath,
-        meta,
-        name,
-        params,
-        path,
-        query,
-        title: getTitle(to),
-      });
-    }
-  },
-  {
-    immediate: true,
-  }
+  (to, from) => {}
 );
 
 /**

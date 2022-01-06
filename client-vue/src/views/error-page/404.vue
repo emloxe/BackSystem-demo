@@ -14,8 +14,8 @@
           <a style="color: #20a0ff" href="https://wallstreetcn.com" target="_blank">wallstreetcn</a>
         </div>
         <div class="bullshit__headline">{{ message }}</div>
-        <div class="bullshit__info">请检查您输入的URL是否正确， 或单击按钮 下面返回主页。</div>
-        <a href="" class="bullshit__return-home">回到主页</a>
+        <div class="bullshit__info">请检查您输入的URL是否正确， 或单击按钮 下面返回上一页。</div>
+        <a href="" class="bullshit__return-home" @click="back()">回到上一页</a>
       </div>
     </div>
   </div>
@@ -26,6 +26,8 @@ import { computed } from 'vue';
 const message = computed(() => {
   return '没有这个页面...';
 });
+
+const back = () => {};
 </script>
 
 <style lang="scss" scoped>

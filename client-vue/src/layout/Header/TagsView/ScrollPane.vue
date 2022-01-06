@@ -37,7 +37,6 @@ export default {
       const eventDelta = e.wheelDelta || -e.deltaY * 40;
       const $scrollWrapper = this.scrollWrapper;
       $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft + eventDelta / 4;
-      console.log(1);
     },
     emitScroll() {
       this.$emit('scroll');
