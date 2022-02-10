@@ -10,16 +10,22 @@
 
     <li @click="onClose">
       <i class="icon-wrap">
-        <el-icon><close /></el-icon>
+        <el-icon><circle-close /></el-icon>
       </i>
       {{ $t('msg.tagsView.closeCurr') }}
     </li>
 
     <li @click="onCloseRightClick">
-      <i class="icon-wrap"></i> {{ $t('msg.tagsView.closeRight') }}
+      <i class="icon-wrap">
+        <el-icon><arrow-right /></el-icon>
+      </i>
+      {{ $t('msg.tagsView.closeRight') }}
     </li>
     <li @click="onCloseOtherClick">
-      <i class="icon-wrap"></i> {{ $t('msg.tagsView.closeOther') }}
+      <i class="icon-wrap">
+        <el-icon><close /></el-icon>
+      </i>
+      {{ $t('msg.tagsView.closeOther') }}
     </li>
   </ul>
 </template>
@@ -29,7 +35,7 @@ import { defineProps } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 // eslint-disable-next-line no-unused-vars
-import { Refresh, Close } from '@element-plus/icons-vue';
+import { Refresh, Close, ArrowRight, CircleClose } from '@element-plus/icons-vue';
 const store = useStore();
 
 const props = defineProps({

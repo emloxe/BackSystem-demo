@@ -121,28 +121,11 @@ const addTag = (to) => {
   });
 };
 
-const moveToCurrentTag = (to) => {
-  // if (!isTags(to.path)) return;
-  // const { fullPath, meta, name, params, path, query } = to;
-  // if (!['404', 'login'].includes(name)) {
-  //   store.commit('app/addTagsViewList', {
-  //     fullPath,
-  //     meta,
-  //     name,
-  //     params,
-  //     path,
-  //     query,
-  //     title: getTitle(to),
-  //   });
-  // }
-};
-
 //
 watch(
   route,
   (to) => {
     addTag(to);
-    moveToCurrentTag();
   },
   {
     immediate: true,
