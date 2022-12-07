@@ -102,7 +102,7 @@ app.use(async (ctx, next) => {
   const token = ctx.session.token;
   if (ctx.session.token) {
     jwt.verifyToken(token).then((res) => {
-
+      ctx.userInfo = res;
     }, (rej) => {
       ctx.session.token = "";
       if (rej.name == "TokenExpiredError") {

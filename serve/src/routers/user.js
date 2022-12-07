@@ -3,7 +3,6 @@ const Router = require("koa-router"),
   md5 = require("md5");
 const config = require("../config");
 const model = require("../models/user");
-const conf = require("../config");
 const {jwt} = require('../utils')
 
 

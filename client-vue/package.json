@@ -19,6 +19,7 @@
     "swiper": "^7.4.1",
     "vue": "^3.2.8",
     "vue-i18n": "^9.2.0-beta.25",
+    "vue-monaco-editor": "^0.0.19",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },

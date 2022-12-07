@@ -23,9 +23,9 @@ const sequelize = new Sequelize(database, username, password, {
   });
 
 const modelDefiners = [
-	require('./models/User'),
 	// Add more models here...
-	// require('./models/item'),
+	require('./models/User'),
+	require('./models/Mock'),
 ];
 
 // We define all models according to their files.

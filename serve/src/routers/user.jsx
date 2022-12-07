@@ -145,6 +145,10 @@
  *               type: "string"
  *               default: "shangsan"
  *               description: 用户名
+  *             chinesename:
+ *               type: "string"
+ *               default: "shangsan"
+ *               description: 中文名
  *             password:
  *               type: "string"
  *               default: "123456"

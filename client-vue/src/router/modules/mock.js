@@ -9,6 +9,7 @@ export default {
     title: 'mock',
     icon: 'personnel',
   },
+
   children: [
     {
       path: '/mock/list',
