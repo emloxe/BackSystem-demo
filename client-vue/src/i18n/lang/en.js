@@ -37,10 +37,8 @@ export default {
     articleDetail: 'ArticleDetail',
     articleEditor: 'ArticleEditor',
 
-    mock: 'Mock',
-    mockList: 'MockList',
-    mockHelp: 'MockHelp',
-    mockCreate: 'CreateMock',
+    tool: 'tool',
+    toolBuild: 'ToolBuild',
   },
   toast: {
     switchLangSuccess: 'Switch Language Success',

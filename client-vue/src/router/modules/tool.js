@@ -11,11 +11,12 @@ export default {
   },
   children: [
     {
-      path: '/tool/mock',
-      component: () => import(/* webpackChunkName: "mdata-manage" */ '@/views/tool/Mock'),
+      path: '/tool/build',
+      component: () =>
+        import(/* webpackChunkName: "mdata-manage" */ '@/views/tool/build/index.vue'),
       meta: {
-        title: 'mock',
-        icon: 'personnel-manage',
+        title: 'toolBuild',
+        icon: 'tool-manage',
       },
     },
   ],

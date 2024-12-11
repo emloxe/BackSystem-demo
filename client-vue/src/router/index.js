@@ -8,7 +8,7 @@ import RoleListRouter from './modules/RoleList';
 import permissionRouter from './modules/permission';
 import ArticleRouter from './modules/Article';
 import ArticleCreaterRouter from './modules/ArticleCreate';
-import mockRouter from './modules/mock';
+import toolRouter from './modules/tool';
 
 /**
  * 私有路由表
@@ -19,7 +19,7 @@ export const privateRoutes = [
   ArticleRouter,
   ArticleCreaterRouter,
   UserManageRouter,
-  mockRouter,
+  toolRouter,
 ];
 /**
  * 公开路由表
